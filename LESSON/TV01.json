@@ -1,0 +1,306 @@
+[
+    [
+        "あなた",
+        "anata",
+        "bạn",
+        "あなた",
+        "anata",
+        "bạn"
+    ],
+    [
+        "あのひと",
+        "ano hito",
+        "người kia",
+        "あのひと",
+        "ano hito",
+        "người kia"
+    ],
+    [
+        "みなさん",
+        "minasan",
+        "các bạn, mọi người",
+        "みなさん",
+        "minasan",
+        "các bạn, mọi người"
+    ],
+    [
+        "～さん",
+        "~san",
+        "anh/chị/ông/bà (hậu tố lịch sự)",
+        "～さん",
+        "~san",
+        "anh/chị/ông/bà (hậu tố lịch sự)"
+    ],
+    [
+        "～ちゃん",
+        "~chan",
+        "bé (gọi thân mật, thường dùng với trẻ em)",
+        "～ちゃん",
+        "~chan",
+        "bé (gọi thân mật, thường dùng với trẻ em)"
+    ],
+    [
+        "～くん",
+        "~kun",
+        "cậu (gọi thân mật, thường dùng với con trai)",
+        "～くん",
+        "~kun",
+        "cậu (gọi thân mật, thường dùng với con trai)"
+    ],
+    [
+        "～じん",
+        "~jin",
+        "người nước ~ (ví dụ: にほんじん: người Nhật)",
+        "～じん",
+        "~jin",
+        "người nước ~ (ví dụ: にほんじん: người Nhật)"
+    ],
+    [
+        "せんせい",
+        "sensei",
+        "thầy/cô giáo",
+        "せんせい",
+        "sensei",
+        "thầy/cô giáo"
+    ],
+    [
+        "きょうし",
+        "kyoushi",
+        "giáo viên",
+        "きょうし",
+        "kyoushi",
+        "giáo viên"
+    ],
+    [
+        "がくせい",
+        "gakusei",
+        "học sinh, sinh viên",
+        "がくせい",
+        "gakusei",
+        "học sinh, sinh viên"
+    ],
+    [
+        "かいしゃいん",
+        "kaishain",
+        "nhân viên công ty",
+        "かいしゃいん",
+        "kaishain",
+        "nhân viên công ty"
+    ],
+    [
+        "しゃいん",
+        "shain",
+        "nhân viên công ty ~",
+        "しゃいん",
+        "shain",
+        "nhân viên công ty ~"
+    ],
+    [
+        "ぎんこういん",
+        "ginkouin",
+        "nhân viên ngân hàng",
+        "ぎんこういん",
+        "ginkouin",
+        "nhân viên ngân hàng"
+    ],
+    [
+        "いしゃ",
+        "isha",
+        "bác sĩ",
+        "いしゃ",
+        "isha",
+        "bác sĩ"
+    ],
+    [
+        "けんきゅうしゃ",
+        "kenkyuusha",
+        "nhà nghiên cứu",
+        "けんきゅうしゃ",
+        "kenkyuusha",
+        "nhà nghiên cứu"
+    ],
+    [
+        "エンジニア",
+        "enjinia",
+        "kỹ sư",
+        "エンジニア",
+        "enjinia",
+        "kỹ sư"
+    ],
+    [
+        "だいがく",
+        "daigaku",
+        "đại học",
+        "だいがく",
+        "daigaku",
+        "đại học"
+    ],
+    [
+        "びょういん",
+        "byouin",
+        "bệnh viện",
+        "びょういん",
+        "byouin",
+        "bệnh viện"
+    ],
+    [
+        "でんき",
+        "denki",
+        "điện, điện lực",
+        "でんき",
+        "denki",
+        "điện, điện lực"
+    ],
+    [
+        "だれ／どなた",
+        "dare / donata",
+        "ai (donata lịch sự hơn)",
+        "だれ／どなた",
+        "dare / donata",
+        "ai (donata lịch sự hơn)"
+    ],
+    [
+        "なんさい／おいくつ",
+        "nansai / oikutsu",
+        "bao nhiêu tuổi (oikutsu lịch sự hơn)",
+        "なんさい／おいくつ",
+        "nansai / oikutsu",
+        "bao nhiêu tuổi (oikutsu lịch sự hơn)"
+    ],
+    [
+        "はい",
+        "hai",
+        "vâng",
+        "はい",
+        "hai",
+        "vâng"
+    ],
+    [
+        "いいえ",
+        "iie",
+        "không",
+        "いいえ",
+        "iie",
+        "không"
+    ],
+    [
+        "しつれいですが",
+        "shitsurei desu ga",
+        "xin lỗi (khi hỏi thông tin)",
+        "しつれいですが",
+        "shitsurei desu ga",
+        "xin lỗi (khi hỏi thông tin)"
+    ],
+    [
+        "おなまえは？",
+        "onamae wa?",
+        "tên bạn là gì?",
+        "おなまえは？",
+        "onamae wa?",
+        "tên bạn là gì?"
+    ],
+    [
+        "はじめまして",
+        "hajimemashite",
+        "rất hân hạnh được gặp bạn",
+        "はじめまして",
+        "hajimemashite",
+        "rất hân hạnh được gặp bạn"
+    ],
+    [
+        "どうぞ よろしく",
+        "douzo yoroshiku",
+        "rất mong được giúp đỡ (lời chào cuối khi giới thiệu)",
+        "どうぞ よろしく",
+        "douzo yoroshiku",
+        "rất mong được giúp đỡ (lời chào cuối khi giới thiệu)"
+    ],
+    [
+        "～からきました",
+        "~ kara kimashita",
+        "tôi đến từ ~",
+        "～からきました",
+        "~ kara kimashita",
+        "tôi đến từ ~"
+    ],
+    [
+        "アメリカ",
+        "Amerika",
+        "Mỹ",
+        "アメリカ",
+        "Amerika",
+        "Mỹ"
+    ],
+    [
+        "イギリス",
+        "Igirisu",
+        "Anh",
+        "イギリス",
+        "Igirisu",
+        "Anh"
+    ],
+    [
+        "インド",
+        "Indo",
+        "Ấn Độ",
+        "インド",
+        "Indo",
+        "Ấn Độ"
+    ],
+    [
+        "インドネシア",
+        "Indoneshia",
+        "Indonesia",
+        "インドネシア",
+        "Indoneshia",
+        "Indonesia"
+    ],
+    [
+        "かんこく",
+        "Kankoku",
+        "Hàn Quốc",
+        "かんこく",
+        "Kankoku",
+        "Hàn Quốc"
+    ],
+    [
+        "ちゅうごく",
+        "Chuugoku",
+        "Trung Quốc",
+        "ちゅうごく",
+        "Chuugoku",
+        "Trung Quốc"
+    ],
+    [
+        "にほん",
+        "Nihon",
+        "Nhật Bản",
+        "にほん",
+        "Nihon",
+        "Nhật Bản"
+    ],
+    [
+        "ドイツ",
+        "Doitsu",
+        "Đức",
+        "ドイツ",
+        "Doitsu",
+        "Đức"
+    ],
+    [
+        "フランス",
+        "Furansu",
+        "Pháp",
+        "フランス",
+        "Furansu",
+        "Pháp"
+    ],
+    [
+        "ブラジル",
+        "Burajiru",
+        "Brazil",
+        "ブラジル",
+        "Burajiru",
+        "Brazil"
+    ]
+]

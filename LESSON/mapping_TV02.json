@@ -1,0 +1,322 @@
+[
+    {
+        "text": "これ",
+        "file": "audio_TV02/audio_TV02_1_col0.mp3"
+    },
+    {
+        "text": "これ",
+        "file": "audio_TV02/audio_TV02_1_col3.mp3"
+    },
+    {
+        "text": "それ",
+        "file": "audio_TV02/audio_TV02_2_col0.mp3"
+    },
+    {
+        "text": "それ",
+        "file": "audio_TV02/audio_TV02_2_col3.mp3"
+    },
+    {
+        "text": "あれ",
+        "file": "audio_TV02/audio_TV02_3_col0.mp3"
+    },
+    {
+        "text": "あれ",
+        "file": "audio_TV02/audio_TV02_3_col3.mp3"
+    },
+    {
+        "text": "この〜",
+        "file": "audio_TV02/audio_TV02_4_col0.mp3"
+    },
+    {
+        "text": "この〜",
+        "file": "audio_TV02/audio_TV02_4_col3.mp3"
+    },
+    {
+        "text": "その〜",
+        "file": "audio_TV02/audio_TV02_5_col0.mp3"
+    },
+    {
+        "text": "その〜",
+        "file": "audio_TV02/audio_TV02_5_col3.mp3"
+    },
+    {
+        "text": "あの〜",
+        "file": "audio_TV02/audio_TV02_6_col0.mp3"
+    },
+    {
+        "text": "あの〜",
+        "file": "audio_TV02/audio_TV02_6_col3.mp3"
+    },
+    {
+        "text": "ほん",
+        "file": "audio_TV02/audio_TV02_7_col0.mp3"
+    },
+    {
+        "text": "ほん",
+        "file": "audio_TV02/audio_TV02_7_col3.mp3"
+    },
+    {
+        "text": "じしょ",
+        "file": "audio_TV02/audio_TV02_8_col0.mp3"
+    },
+    {
+        "text": "じしょ",
+        "file": "audio_TV02/audio_TV02_8_col3.mp3"
+    },
+    {
+        "text": "ざっし",
+        "file": "audio_TV02/audio_TV02_9_col0.mp3"
+    },
+    {
+        "text": "ざっし",
+        "file": "audio_TV02/audio_TV02_9_col3.mp3"
+    },
+    {
+        "text": "しんぶん",
+        "file": "audio_TV02/audio_TV02_10_col0.mp3"
+    },
+    {
+        "text": "しんぶん",
+        "file": "audio_TV02/audio_TV02_10_col3.mp3"
+    },
+    {
+        "text": "ノート",
+        "file": "audio_TV02/audio_TV02_11_col0.mp3"
+    },
+    {
+        "text": "ノート",
+        "file": "audio_TV02/audio_TV02_11_col3.mp3"
+    },
+    {
+        "text": "てちょう",
+        "file": "audio_TV02/audio_TV02_12_col0.mp3"
+    },
+    {
+        "text": "てちょう",
+        "file": "audio_TV02/audio_TV02_12_col3.mp3"
+    },
+    {
+        "text": "カード",
+        "file": "audio_TV02/audio_TV02_13_col0.mp3"
+    },
+    {
+        "text": "カード",
+        "file": "audio_TV02/audio_TV02_13_col3.mp3"
+    },
+    {
+        "text": "ボールペン",
+        "file": "audio_TV02/audio_TV02_14_col0.mp3"
+    },
+    {
+        "text": "ボールペン",
+        "file": "audio_TV02/audio_TV02_14_col3.mp3"
+    },
+    {
+        "text": "シャープペンシル",
+        "file": "audio_TV02/audio_TV02_15_col0.mp3"
+    },
+    {
+        "text": "シャープペンシル",
+        "file": "audio_TV02/audio_TV02_15_col3.mp3"
+    },
+    {
+        "text": "かぎ",
+        "file": "audio_TV02/audio_TV02_16_col0.mp3"
+    },
+    {
+        "text": "かぎ",
+        "file": "audio_TV02/audio_TV02_16_col3.mp3"
+    },
+    {
+        "text": "とけい",
+        "file": "audio_TV02/audio_TV02_17_col0.mp3"
+    },
+    {
+        "text": "とけい",
+        "file": "audio_TV02/audio_TV02_17_col3.mp3"
+    },
+    {
+        "text": "かさ",
+        "file": "audio_TV02/audio_TV02_18_col0.mp3"
+    },
+    {
+        "text": "かさ",
+        "file": "audio_TV02/audio_TV02_18_col3.mp3"
+    },
+    {
+        "text": "かばん",
+        "file": "audio_TV02/audio_TV02_19_col0.mp3"
+    },
+    {
+        "text": "かばん",
+        "file": "audio_TV02/audio_TV02_19_col3.mp3"
+    },
+    {
+        "text": "テレビ",
+        "file": "audio_TV02/audio_TV02_20_col0.mp3"
+    },
+    {
+        "text": "テレビ",
+        "file": "audio_TV02/audio_TV02_20_col3.mp3"
+    },
+    {
+        "text": "ラジオ",
+        "file": "audio_TV02/audio_TV02_21_col0.mp3"
+    },
+    {
+        "text": "ラジオ",
+        "file": "audio_TV02/audio_TV02_21_col3.mp3"
+    },
+    {
+        "text": "カメラ",
+        "file": "audio_TV02/audio_TV02_22_col0.mp3"
+    },
+    {
+        "text": "カメラ",
+        "file": "audio_TV02/audio_TV02_22_col3.mp3"
+    },
+    {
+        "text": "コンピューター",
+        "file": "audio_TV02/audio_TV02_23_col0.mp3"
+    },
+    {
+        "text": "コンピューター",
+        "file": "audio_TV02/audio_TV02_23_col3.mp3"
+    },
+    {
+        "text": "くるま",
+        "file": "audio_TV02/audio_TV02_24_col0.mp3"
+    },
+    {
+        "text": "くるま",
+        "file": "audio_TV02/audio_TV02_24_col3.mp3"
+    },
+    {
+        "text": "つくえ",
+        "file": "audio_TV02/audio_TV02_25_col0.mp3"
+    },
+    {
+        "text": "つくえ",
+        "file": "audio_TV02/audio_TV02_25_col3.mp3"
+    },
+    {
+        "text": "いす",
+        "file": "audio_TV02/audio_TV02_26_col0.mp3"
+    },
+    {
+        "text": "いす",
+        "file": "audio_TV02/audio_TV02_26_col3.mp3"
+    },
+    {
+        "text": "チョコレート",
+        "file": "audio_TV02/audio_TV02_27_col0.mp3"
+    },
+    {
+        "text": "チョコレート",
+        "file": "audio_TV02/audio_TV02_27_col3.mp3"
+    },
+    {
+        "text": "コーヒー",
+        "file": "audio_TV02/audio_TV02_28_col0.mp3"
+    },
+    {
+        "text": "コーヒー",
+        "file": "audio_TV02/audio_TV02_28_col3.mp3"
+    },
+    {
+        "text": "えいご",
+        "file": "audio_TV02/audio_TV02_29_col0.mp3"
+    },
+    {
+        "text": "えいご",
+        "file": "audio_TV02/audio_TV02_29_col3.mp3"
+    },
+    {
+        "text": "にほんご",
+        "file": "audio_TV02/audio_TV02_30_col0.mp3"
+    },
+    {
+        "text": "にほんご",
+        "file": "audio_TV02/audio_TV02_30_col3.mp3"
+    },
+    {
+        "text": "なん / なに",
+        "file": "audio_TV02/audio_TV02_31_col0.mp3"
+    },
+    {
+        "text": "なん / なに",
+        "file": "audio_TV02/audio_TV02_31_col3.mp3"
+    },
+    {
+        "text": "そう",
+        "file": "audio_TV02/audio_TV02_32_col0.mp3"
+    },
+    {
+        "text": "そう",
+        "file": "audio_TV02/audio_TV02_32_col3.mp3"
+    },
+    {
+        "text": "ちがいます",
+        "file": "audio_TV02/audio_TV02_33_col0.mp3"
+    },
+    {
+        "text": "ちがいます",
+        "file": "audio_TV02/audio_TV02_33_col3.mp3"
+    },
+    {
+        "text": "あのう",
+        "file": "audio_TV02/audio_TV02_34_col0.mp3"
+    },
+    {
+        "text": "あのう",
+        "file": "audio_TV02/audio_TV02_34_col3.mp3"
+    },
+    {
+        "text": "ほんのきもちです",
+        "file": "audio_TV02/audio_TV02_35_col0.mp3"
+    },
+    {
+        "text": "ほんのきもちです",
+        "file": "audio_TV02/audio_TV02_35_col3.mp3"
+    },
+    {
+        "text": "どうぞ",
+        "file": "audio_TV02/audio_TV02_36_col0.mp3"
+    },
+    {
+        "text": "どうぞ",
+        "file": "audio_TV02/audio_TV02_36_col3.mp3"
+    },
+    {
+        "text": "どうも",
+        "file": "audio_TV02/audio_TV02_37_col0.mp3"
+    },
+    {
+        "text": "どうも",
+        "file": "audio_TV02/audio_TV02_37_col3.mp3"
+    },
+    {
+        "text": "ありがとう",
+        "file": "audio_TV02/audio_TV02_38_col0.mp3"
+    },
+    {
+        "text": "ありがとう",
+        "file": "audio_TV02/audio_TV02_38_col3.mp3"
+    },
+    {
+        "text": "これからおせわになります",
+        "file": "audio_TV02/audio_TV02_39_col0.mp3"
+    },
+    {
+        "text": "これからおせわになります",
+        "file": "audio_TV02/audio_TV02_39_col3.mp3"
+    },
+    {
+        "text": "こちらこそよろしく",
+        "file": "audio_TV02/audio_TV02_40_col0.mp3"
+    },
+    {
+        "text": "こちらこそよろしく",
+        "file": "audio_TV02/audio_TV02_40_col3.mp3"
+    }
+]

@@ -1,0 +1,322 @@
+[
+    [
+        "これ",
+        "kore",
+        "cái này",
+        "これ",
+        "kore",
+        "cái này"
+    ],
+    [
+        "それ",
+        "sore",
+        "cái đó",
+        "それ",
+        "sore",
+        "cái đó"
+    ],
+    [
+        "あれ",
+        "are",
+        "cái kia",
+        "あれ",
+        "are",
+        "cái kia"
+    ],
+    [
+        "この〜",
+        "kono ~",
+        "~ này (dùng trước danh từ)",
+        "この〜",
+        "kono ~",
+        "~ này (dùng trước danh từ)"
+    ],
+    [
+        "その〜",
+        "sono ~",
+        "~ đó (dùng trước danh từ)",
+        "その〜",
+        "sono ~",
+        "~ đó (dùng trước danh từ)"
+    ],
+    [
+        "あの〜",
+        "ano ~",
+        "~ kia (dùng trước danh từ)",
+        "あの〜",
+        "ano ~",
+        "~ kia (dùng trước danh từ)"
+    ],
+    [
+        "ほん",
+        "hon",
+        "sách",
+        "ほん",
+        "hon",
+        "sách"
+    ],
+    [
+        "じしょ",
+        "jisho",
+        "từ điển",
+        "じしょ",
+        "jisho",
+        "từ điển"
+    ],
+    [
+        "ざっし",
+        "zasshi",
+        "tạp chí",
+        "ざっし",
+        "zasshi",
+        "tạp chí"
+    ],
+    [
+        "しんぶん",
+        "shinbun",
+        "báo",
+        "しんぶん",
+        "shinbun",
+        "báo"
+    ],
+    [
+        "ノート",
+        "nooto",
+        "vở",
+        "ノート",
+        "nooto",
+        "vở"
+    ],
+    [
+        "てちょう",
+        "techou",
+        "sổ tay",
+        "てちょう",
+        "techou",
+        "sổ tay"
+    ],
+    [
+        "カード",
+        "kaado",
+        "thẻ",
+        "カード",
+        "kaado",
+        "thẻ"
+    ],
+    [
+        "ボールペン",
+        "boorupen",
+        "bút bi",
+        "ボールペン",
+        "boorupen",
+        "bút bi"
+    ],
+    [
+        "シャープペンシル",
+        "shaapupenshiru",
+        "bút chì kim",
+        "シャープペンシル",
+        "shaapupenshiru",
+        "bút chì kim"
+    ],
+    [
+        "かぎ",
+        "kagi",
+        "chìa khóa",
+        "かぎ",
+        "kagi",
+        "chìa khóa"
+    ],
+    [
+        "とけい",
+        "tokei",
+        "đồng hồ",
+        "とけい",
+        "tokei",
+        "đồng hồ"
+    ],
+    [
+        "かさ",
+        "kasa",
+        "ô, dù",
+        "かさ",
+        "kasa",
+        "ô, dù"
+    ],
+    [
+        "かばん",
+        "kaban",
+        "cặp sách, túi",
+        "かばん",
+        "kaban",
+        "cặp sách, túi"
+    ],
+    [
+        "テレビ",
+        "terebi",
+        "tivi",
+        "テレビ",
+        "terebi",
+        "tivi"
+    ],
+    [
+        "ラジオ",
+        "rajio",
+        "radio",
+        "ラジオ",
+        "rajio",
+        "radio"
+    ],
+    [
+        "カメラ",
+        "kamera",
+        "máy ảnh",
+        "カメラ",
+        "kamera",
+        "máy ảnh"
+    ],
+    [
+        "コンピューター",
+        "konpyuutaa",
+        "máy tính",
+        "コンピューター",
+        "konpyuutaa",
+        "máy tính"
+    ],
+    [
+        "くるま",
+        "kuruma",
+        "xe hơi",
+        "くるま",
+        "kuruma",
+        "xe hơi"
+    ],
+    [
+        "つくえ",
+        "tsukue",
+        "bàn",
+        "つくえ",
+        "tsukue",
+        "bàn"
+    ],
+    [
+        "いす",
+        "isu",
+        "ghế",
+        "いす",
+        "isu",
+        "ghế"
+    ],
+    [
+        "チョコレート",
+        "chokoreeto",
+        "sô-cô-la",
+        "チョコレート",
+        "chokoreeto",
+        "sô-cô-la"
+    ],
+    [
+        "コーヒー",
+        "koohii",
+        "cà phê",
+        "コーヒー",
+        "koohii",
+        "cà phê"
+    ],
+    [
+        "えいご",
+        "eigo",
+        "tiếng Anh",
+        "えいご",
+        "eigo",
+        "tiếng Anh"
+    ],
+    [
+        "にほんご",
+        "nihongo",
+        "tiếng Nhật",
+        "にほんご",
+        "nihongo",
+        "tiếng Nhật"
+    ],
+    [
+        "なん / なに",
+        "nan / nani",
+        "cái gì",
+        "なん / なに",
+        "nan / nani",
+        "cái gì"
+    ],
+    [
+        "そう",
+        "sou",
+        "đúng vậy",
+        "そう",
+        "sou",
+        "đúng vậy"
+    ],
+    [
+        "ちがいます",
+        "chigaimasu",
+        "không đúng, sai rồi",
+        "ちがいます",
+        "chigaimasu",
+        "không đúng, sai rồi"
+    ],
+    [
+        "あのう",
+        "anou",
+        "à, ờ... (ngập ngừng)",
+        "あのう",
+        "anou",
+        "à, ờ... (ngập ngừng)"
+    ],
+    [
+        "ほんのきもちです",
+        "hon no kimochi desu",
+        "chỉ là chút lòng thành",
+        "ほんのきもちです",
+        "hon no kimochi desu",
+        "chỉ là chút lòng thành"
+    ],
+    [
+        "どうぞ",
+        "douzo",
+        "xin mời",
+        "どうぞ",
+        "douzo",
+        "xin mời"
+    ],
+    [
+        "どうも",
+        "doumo",
+        "cảm ơn (thân mật)",
+        "どうも",
+        "doumo",
+        "cảm ơn (thân mật)"
+    ],
+    [
+        "ありがとう",
+        "arigatou",
+        "cảm ơn",
+        "ありがとう",
+        "arigatou",
+        "cảm ơn"
+    ],
+    [
+        "これからおせわになります",
+        "kore kara osewa ni narimasu",
+        "mong được giúp đỡ",
+        "これからおせわになります",
+        "kore kara osewa ni narimasu",
+        "mong được giúp đỡ"
+    ],
+    [
+        "こちらこそよろしく",
+        "kochira koso yoroshiku",
+        "chính tôi mới là người cần được giúp đỡ",
+        "こちらこそよろしく",
+        "kochira koso yoroshiku",
+        "chính tôi mới là người cần được giúp đỡ"
+    ]
+]
