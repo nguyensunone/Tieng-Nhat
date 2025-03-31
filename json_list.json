@@ -1,0 +1,9 @@
+{
+    "lessons": [
+        {
+            "name": "TuVungNhat.json",
+            "mapping": "mapping_TuVungNhat.json",
+            "audio": "audio_TuVungNhat"
+        }
+    ]
+}

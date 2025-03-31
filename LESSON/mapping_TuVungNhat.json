@@ -1,0 +1,306 @@
+[
+    {
+        "text": "あなた",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_1_col0.mp3"
+    },
+    {
+        "text": "あなた",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_1_col3.mp3"
+    },
+    {
+        "text": "あのひと",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_2_col0.mp3"
+    },
+    {
+        "text": "あのひと",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_2_col3.mp3"
+    },
+    {
+        "text": "みなさん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_3_col0.mp3"
+    },
+    {
+        "text": "みなさん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_3_col3.mp3"
+    },
+    {
+        "text": "～さん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_4_col0.mp3"
+    },
+    {
+        "text": "～さん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_4_col3.mp3"
+    },
+    {
+        "text": "～ちゃん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_5_col0.mp3"
+    },
+    {
+        "text": "～ちゃん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_5_col3.mp3"
+    },
+    {
+        "text": "～くん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_6_col0.mp3"
+    },
+    {
+        "text": "～くん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_6_col3.mp3"
+    },
+    {
+        "text": "～じん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_7_col0.mp3"
+    },
+    {
+        "text": "～じん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_7_col3.mp3"
+    },
+    {
+        "text": "せんせい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_8_col0.mp3"
+    },
+    {
+        "text": "せんせい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_8_col3.mp3"
+    },
+    {
+        "text": "きょうし",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_9_col0.mp3"
+    },
+    {
+        "text": "きょうし",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_9_col3.mp3"
+    },
+    {
+        "text": "がくせい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_10_col0.mp3"
+    },
+    {
+        "text": "がくせい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_10_col3.mp3"
+    },
+    {
+        "text": "かいしゃいん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_11_col0.mp3"
+    },
+    {
+        "text": "かいしゃいん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_11_col3.mp3"
+    },
+    {
+        "text": "しゃいん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_12_col0.mp3"
+    },
+    {
+        "text": "しゃいん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_12_col3.mp3"
+    },
+    {
+        "text": "ぎんこういん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_13_col0.mp3"
+    },
+    {
+        "text": "ぎんこういん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_13_col3.mp3"
+    },
+    {
+        "text": "いしゃ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_14_col0.mp3"
+    },
+    {
+        "text": "いしゃ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_14_col3.mp3"
+    },
+    {
+        "text": "けんきゅうしゃ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_15_col0.mp3"
+    },
+    {
+        "text": "けんきゅうしゃ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_15_col3.mp3"
+    },
+    {
+        "text": "エンジニア",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_16_col0.mp3"
+    },
+    {
+        "text": "エンジニア",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_16_col3.mp3"
+    },
+    {
+        "text": "だいがく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_17_col0.mp3"
+    },
+    {
+        "text": "だいがく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_17_col3.mp3"
+    },
+    {
+        "text": "びょういん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_18_col0.mp3"
+    },
+    {
+        "text": "びょういん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_18_col3.mp3"
+    },
+    {
+        "text": "でんき",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_19_col0.mp3"
+    },
+    {
+        "text": "でんき",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_19_col3.mp3"
+    },
+    {
+        "text": "だれ／どなた",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_20_col0.mp3"
+    },
+    {
+        "text": "だれ／どなた",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_20_col3.mp3"
+    },
+    {
+        "text": "なんさい／おいくつ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_21_col0.mp3"
+    },
+    {
+        "text": "なんさい／おいくつ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_21_col3.mp3"
+    },
+    {
+        "text": "はい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_22_col0.mp3"
+    },
+    {
+        "text": "はい",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_22_col3.mp3"
+    },
+    {
+        "text": "いいえ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_23_col0.mp3"
+    },
+    {
+        "text": "いいえ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_23_col3.mp3"
+    },
+    {
+        "text": "しつれいですが",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_24_col0.mp3"
+    },
+    {
+        "text": "しつれいですが",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_24_col3.mp3"
+    },
+    {
+        "text": "おなまえは？",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_25_col0.mp3"
+    },
+    {
+        "text": "おなまえは？",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_25_col3.mp3"
+    },
+    {
+        "text": "はじめまして",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_26_col0.mp3"
+    },
+    {
+        "text": "はじめまして",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_26_col3.mp3"
+    },
+    {
+        "text": "どうぞ よろしく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_27_col0.mp3"
+    },
+    {
+        "text": "どうぞ よろしく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_27_col3.mp3"
+    },
+    {
+        "text": "～からきました",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_28_col0.mp3"
+    },
+    {
+        "text": "～からきました",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_28_col3.mp3"
+    },
+    {
+        "text": "アメリカ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_29_col0.mp3"
+    },
+    {
+        "text": "アメリカ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_29_col3.mp3"
+    },
+    {
+        "text": "イギリス",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_30_col0.mp3"
+    },
+    {
+        "text": "イギリス",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_30_col3.mp3"
+    },
+    {
+        "text": "インド",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_31_col0.mp3"
+    },
+    {
+        "text": "インド",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_31_col3.mp3"
+    },
+    {
+        "text": "インドネシア",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_32_col0.mp3"
+    },
+    {
+        "text": "インドネシア",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_32_col3.mp3"
+    },
+    {
+        "text": "かんこく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_33_col0.mp3"
+    },
+    {
+        "text": "かんこく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_33_col3.mp3"
+    },
+    {
+        "text": "ちゅうごく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_34_col0.mp3"
+    },
+    {
+        "text": "ちゅうごく",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_34_col3.mp3"
+    },
+    {
+        "text": "にほん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_35_col0.mp3"
+    },
+    {
+        "text": "にほん",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_35_col3.mp3"
+    },
+    {
+        "text": "ドイツ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_36_col0.mp3"
+    },
+    {
+        "text": "ドイツ",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_36_col3.mp3"
+    },
+    {
+        "text": "フランス",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_37_col0.mp3"
+    },
+    {
+        "text": "フランス",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_37_col3.mp3"
+    },
+    {
+        "text": "ブラジル",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_38_col0.mp3"
+    },
+    {
+        "text": "ブラジル",
+        "file": "audio_TuVungNhat/audio_TuVungNhat_38_col3.mp3"
+    }
+]
