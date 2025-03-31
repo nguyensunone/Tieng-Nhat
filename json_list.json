@@ -4,6 +4,11 @@
             "name": "TuVungNhat.json",
             "mapping": "mapping_TuVungNhat.json",
             "audio": "audio_TuVungNhat"
+        },
+        {
+            "name": "HT01.json",
+            "mapping": "mapping_HT01.json",
+            "audio": "audio_HT01"
         }
     ]
 }
