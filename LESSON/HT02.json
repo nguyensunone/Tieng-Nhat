@@ -1,0 +1,58 @@
+[
+    [
+        "それは なんですか。",
+        "Sore wa nan desu ka?",
+        "Cái đó là cái gì?",
+        "これは じしょです。",
+        "Kore wa jisho desu.",
+        "Đây là từ điển."
+    ],
+    [
+        "それは コンピューターですか。",
+        "Sore wa konpyuutaa desu ka?",
+        "Cái đó là máy tính phải không?",
+        "はい、そうです。",
+        "Hai, sou desu.",
+        "Vâng, đúng vậy."
+    ],
+    [
+        "これは なんのざっしですか。",
+        "Kore wa nan no zasshi desu ka?",
+        "Đây là tạp chí về gì?",
+        "コンピューターのざっしです。",
+        "Konpyuutaa no zasshi desu.",
+        "Là tạp chí về máy tính."
+    ],
+    [
+        "あれは だれのかばんですか。",
+        "Are wa dare no kaban desu ka?",
+        "Kia là cặp sách của ai?",
+        "サントスさんのかばんです。",
+        "Santosu-san no kaban desu.",
+        "Là cặp sách của anh Santosu."
+    ],
+    [
+        "このかさは あなたのですか。",
+        "Kono kasa wa anata no desu ka?",
+        "Cái ô này là của bạn phải không?",
+        "いいえ、ちがいます。",
+        "Iie, chigaimasu.",
+        "Không, không phải."
+    ],
+    [
+        "このほんの ねだんは いくらですか。",
+        "Kono hon no nedan wa ikura desu ka?",
+        "Quyển sách này giá bao nhiêu?",
+        "100えんです。",
+        "Hyaku en desu.",
+        "100 yên."
+    ],
+    [
+        "これは フランスごのほんですか。",
+        "Kore wa furansugo no hon desu ka?",
+        "Đây là sách tiếng Pháp phải không?",
+        "いいえ、ちがいます。えいごのほんです。",
+        "Iie, chigaimasu. Eigo no hon desu.",
+        "Không, không phải. Là sách tiếng Anh."
+    ]
+]

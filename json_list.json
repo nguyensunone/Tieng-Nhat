@@ -9,6 +9,11 @@
             "name": "HT01.json",
             "mapping": "mapping_HT01.json",
             "audio": "audio_HT01"
+        },
+        {
+            "name": "HT02.json",
+            "mapping": "mapping_HT02.json",
+            "audio": "audio_HT02"
         }
     ]
 }
