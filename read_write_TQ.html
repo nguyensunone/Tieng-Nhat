@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thi Quoc Tich</title>
+    <title>Học Ngôn Ngữ</title>
     <style>    
         body {
             font-family: 'Arial', sans-serif;
@@ -39,15 +39,6 @@
         .vietnamese {
             color: #61dafb;
         }        
-        .example {
-            color: lightgreen;
-        }
-        .example_ipa {
-            color: yellow;
-        }
-        .example_vi {
-            color: #21a1f1;
-        }
         input, button {
             margin: 5px;
             padding: 10px;
@@ -77,7 +68,7 @@
             margin: 20px auto;
             display: block;
         }
-        #answerInput, #writingCheckBack {
+        #answerInput {
             width: 80%;
             max-width: 800px;
             height: 40px;
@@ -106,7 +97,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #checkAnswerButton, #checkAnswerBackButton, #speakCheckButton {
+        #checkAnswerButton, #speakCheckButton {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 20px;
@@ -118,7 +109,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        #checkAnswerButton:hover, #checkAnswerBackButton:hover, #speakCheckButton:hover {
+        #checkAnswerButton:hover, #speakCheckButton:hover {
             background-color: #21a1f1;
         }
         #notification {
@@ -218,6 +209,28 @@
             color: lightgreen;            
             margin-top: 5px;
         }
+        #answerInput:focus {
+            outline: 2px solid #61dafb;
+            box-shadow: 0 0 5px #61dafb;
+        }
+        /* Thêm vào phần style */
+        .card span[lang="zh"] {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            font-size: 2em;
+            color: #e53935;
+            display: block;
+            margin: 10px 0;
+        }
+        /* Thêm vào phần style */
+        #answerInput.error {
+            border-color: #ff4444 !important;
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
     </style>
 </head>
 <body>
@@ -246,19 +259,17 @@
     <p><span id="recognizedSpeech"></span></p>
 </div>
 
-<textarea id="answerInput" placeholder="Kiểm Tra Viết Câu Hỏi (V1)" onkeydown="handleKeyDown(event)"></textarea>
-<textarea id="writingCheckBack" placeholder="Kiểm Tra Viết Câu Trả Lời (V2)" onkeydown="handleKeyDownBack(event)"></textarea>
+<textarea id="answerInput" placeholder="Kiểm Tra Viết Câu Hỏi" onkeydown="handleKeyDown(event)"></textarea>
 
 <!-- Nhóm các nút kiểm tra -->
 <div style="text-align: center;">
-    <button id="checkAnswerButton" onclick="checkAnswer()">V1</button>
-    <button id="checkAnswerBackButton" onclick="checkAnswerBack()">V2</button>
-    <button id="speakCheckFrontButton" onclick="startSpeechRecognitionFront()">Nói</button>    
+    <button id="checkAnswerButton" onclick="checkAnswer()">Tập Viết</button>
+    <button id="readingModeButton" onclick="toggleReadingMode()">Tắt âm thanh</button>
+    <button id="speakCheckFrontButton" onclick="startSpeechRecognitionFront()">Tập Đọc</button>       
 </div>
 
 <div class="controls"></div>
 <button onclick="prevWord()">Trước</button>
-<button onclick="flipCard()">Lật Thẻ</button>
 <button onclick="nextWord()">Tiếp Theo</button>
 <button id="repeatButton" onclick="repeatPronunciation()">Lặp Lại</button>
 <button id="autoFlipButton" onclick="toggleAutoFlip()">Tự Động</button>
@@ -284,7 +295,6 @@
     let autoFlip = false;
     let audio;
     let autoFlipTimeout;
-    let isFront = true;
     let currentPronunciationText = '';
     let isRandomMode = false; // Mặc định là chế độ theo thứ tự
     let audioMapping = []; // Lưu trữ thông tin âm thanh từ file JSON
@@ -379,50 +389,39 @@
     }
 
     function nextWord() {
-    if (vocabList.length === 0) return;
-    clearTimeout(autoFlipTimeout);
+        if (vocabList.length === 0) return;
+        clearTimeout(autoFlipTimeout);
 
-    if (isRandomMode) {
-        if (askedIndices.length >= vocabList.length) {
-            if (!isRandomCycleComplete) {
-                alert("Đã hoàn thành 1 vòng ngẫu nhiên!\nTự động bắt đầu vòng mới.");
+        if (isRandomMode) {
+            if (askedIndices.length >= vocabList.length) {
+                if (!isRandomCycleComplete) {
+                    alert("Đã hoàn thành 1 vòng ngẫu nhiên!\nTự động bắt đầu vòng mới.");
+                }
+                askedIndices = [];
+                isRandomCycleComplete = true;
             }
-            askedIndices = [];
-            isRandomCycleComplete = true;
+
+            const availableIndices = [];
+            for (let i = 0; i < vocabList.length; i++) {
+                if (!askedIndices.includes(i)) {
+                    availableIndices.push(i);
+                }
+            }
+
+            currentIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+            askedIndices.push(currentIndex);
+        } else {
+            currentIndex = (currentIndex + 1) % vocabList.length;
         }
 
-        const availableIndices = [];
-        for (let i = 0; i < vocabList.length; i++) {
-            if (!askedIndices.includes(i)) {
-                availableIndices.push(i);
-            }
+        displayWord();
+        
+        // Nếu đang ở chế độ auto flip, phát âm thanh ngay
+        if (autoFlip) {
+            const word = vocabList[currentIndex];
+            playPronunciation(word[0]);
         }
-
-        currentIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
-        askedIndices.push(currentIndex);
-    } else {
-        currentIndex = (currentIndex + 1) % vocabList.length;
     }
-
-    isFront = true;
-    displayWord();
-    
-    // Nếu đang ở chế độ auto flip, phát âm thanh ngay
-    if (autoFlip) {
-        const word = vocabList[currentIndex];
-        playPronunciation(word[0]);
-    }
-}
-
-function flipCard() {
-    isFront = !isFront;
-    displayWord();
-    
-    // Phát âm thanh mặt mới và xử lý auto flip
-    const word = vocabList[currentIndex];
-    const textToPlay = isFront ? word[0] : word[3];
-    playPronunciation(textToPlay);
-}
 
     // --- Sửa hàm prevWord ---
     function prevWord() {
@@ -432,50 +431,39 @@ function flipCard() {
         } else {
             // Chế độ thứ tự bình thường
             currentIndex = (currentIndex - 1 + vocabList.length) % vocabList.length;
-            isFront = true;
             displayWord();
         }
     }
 
-    function displayWord() {  
-    if (vocabList.length > 0 && currentIndex < vocabList.length) {  
-        const word = vocabList[currentIndex];  
+    function displayWord() {
+        if (audio) audio.stop();
         
-        // Xây dựng nội dung thẻ frontCard  
-        const frontCard = `  
-            <div class="card">  
-                <span class="term" style="color: ${hiddenElements.term ? '#1c2025' : 'lightgreen'};">${word[0]}</span><br>  
-                <span class="ipa" style="color: ${hiddenElements.ipa ? '#1c2025' : 'yellow'};">${word[1]}</span><br>                
-                <span class="vietnamese" style="color: ${hiddenElements.vietnamese ? '#1c2025' : '#21a1f1'};">${word[2]}</span><br>                    
-            </div>  
-        `;  
-        
-        // Xây dựng nội dung thẻ backCard  
-        const backCard = `  
-            <div class="card">  
-                <span class="example">${word[3]}</span><br>  
-                <span class="example_ipa">${word[4]}</span><br>  
-                <span class="example_vi">${word[5]}</span>  
-            </div>  
-        `;  
-        
-        // Hiển thị thẻ tương ứng  
-        document.getElementById('vocabLabel').innerHTML = isFront ? frontCard : backCard;  
-
-        // Phát âm thanh tương ứng với mặt thẻ  
-        const pronunciationText = isFront ? word[0].toString() : word[3].toString();  
-        playPronunciation(pronunciationText);  
-    } else {  
-        document.getElementById('vocabLabel').innerText = "Tất cả từ vựng đã hoàn thành.";  
-    }  
-    updateQuestionCounter();  
-}  
+        if (vocabList.length > 0 && currentIndex < vocabList.length) {
+            const word = vocabList[currentIndex];
+            document.getElementById('vocabLabel').innerHTML = `
+                <div class="card">
+                    <span class="term">${word[0]}</span><br>
+                    <span class="ipa">${word[1]}</span><br>                
+                    <span class="vietnamese">${word[2]}</span>
+                </div>`;
+            
+            // KHÔNG tự động phát âm ở đây nữa
+            // Việc phát âm sẽ do startAutoFlip xử lý
+        }
+        updateQuestionCounter();
+        // Thêm gợi ý Pinyin khi là tiếng Trung
+        if (/[\u4e00-\u9fff]/.test(word[0])) {
+            document.getElementById('answerInput').placeholder = `Nhập/Nói: ${word[1]}`;
+        } else {
+            document.getElementById('answerInput').placeholder = "Kiểm Tra Viết/Nói";
+        }
+    }
 
     // Hàm để ẩn hiện các phần tử  
     function toggleVisibility(element) {  
         hiddenElements[element] = !hiddenElements[element]; // Đảo ngược trạng thái ẩn hiện  
         displayWord(); // Gọi lại hàm displayWord để cập nhật hiển thị  
-}  
+    }  
 
     function updateQuestionCounter() {
         const questionCounter = document.getElementById('questionCounter');
@@ -571,13 +559,11 @@ function flipCard() {
             case 'ArrowRight':
                 nextWord();
                 break;
-            case 'ArrowDown':
-                flipCard();
-                break;
             case 'ArrowUp':
                 repeatPronunciation();
                 break;            
             case 'End':
+                document.getElementById('answerInput').focus();
                 startSpeechRecognitionFront();
                 break;
             case 'Insert':
@@ -597,111 +583,6 @@ function flipCard() {
             checkAnswer();
         }
     }
-
-    function handleKeyDownBack(event) {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
-            checkAnswerBack();
-        }
-    }
-
-    function showNotification(message, isCorrect) {
-        const notification = document.getElementById('notification');
-        notification.innerText = message;
-        notification.style.display = 'inline-block';
-        notification.style.color = '#ffffff';
-        if (isCorrect) {
-            notification.classList.remove('wrong');
-            notification.style.backgroundColor = '#4caf50';
-        } else {
-            notification.classList.add('wrong');
-            notification.style.backgroundColor = '#f44336';
-        }
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 2000);
-    }
-
-    let isSlowPronunciation = false; // Biến để theo dõi trạng thái phát âm chậm
-
-function toggleSlowPronunciation() {
-    isSlowPronunciation = !isSlowPronunciation;
-    const button = document.getElementById('slowPronunciationButton');
-    button.innerText = isSlowPronunciation ? "Tắt Phát Âm Chậm" : "Phát Âm Chậm";
-    if (isSlowPronunciation) {
-        alert("Chế độ phát âm chậm đã bật.");
-    } else {
-        alert("Chế độ phát âm chậm đã tắt.");
-    }
-}
-
-function repeatPronunciation() {
-    if (currentPronunciationText) {
-        playPronunciation(currentPronunciationText);
-    } else {
-        const word = vocabList[currentIndex];
-        const textToPlay = isFront ? word[0] : word[3];
-        playPronunciation(textToPlay);
-    }
-}
-
-function autoFlipLogic() {
-    if (audio) {
-        // Đợi âm thanh phát xong hoặc hết thời gian tối đa
-        const audioDuration = audio.duration() * 1000; // chuyển sang mili giây
-        const maxWaitTime = Math.max(audioDuration, 5000); // Lấy thời gian lớn hơn giữa độ dài audio và 5 giây
-        
-        autoFlipTimeout = setTimeout(() => {
-            flipCard();
-            // Đợi âm thanh mặt sau phát xong trước khi chuyển thẻ tiếp
-            setTimeout(() => {
-                if (audio) {
-                    audio.once('end', nextWord);
-                } else {
-                    nextWord();
-                }
-            }, 1000); // Thêm độ trễ nhỏ để đảm bảo
-        }, maxWaitTime);
-    } else {
-        // Xử lý khi không có audio
-        autoFlipTimeout = setTimeout(() => {
-            flipCard();
-            setTimeout(nextWord, 5000);
-        }, 5000);
-    }
-}
-
-    function flipCardToBack() {
-        isFront = false;
-        displayWord();
-    }
-
-    function toggleAutoFlip() {
-    autoFlip = !autoFlip;
-    const button = document.getElementById('autoFlipButton');
-    button.innerText = autoFlip ? "Tắt Tự Động" : "Tự Động";
-    
-    if (autoFlip) {
-        clearTimeout(autoFlipTimeout);
-        // Bắt đầu auto flip ngay lập tức
-        const word = vocabList[currentIndex];
-        const textToPlay = isFront ? word[0] : word[3];
-        playPronunciation(textToPlay);
-    } else {
-        clearTimeout(autoFlipTimeout);
-        if (audio) {
-            audio.stop();
-        }
-    }
-}
-
-function removePunctuation(text) {  
-    return text  
-        .replace(/[-]/g, ' ') // Thay thế dấu gạch nối bằng dấu cách  
-        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '') // Loại bỏ các ký tự khác  
-        .replace(/\s{2,}/g, ' ') // Thay thế nhiều dấu cách thành một dấu cách  
-        .trim(); // Loại bỏ dấu cách thừa ở đầu và cuối chuỗi  
-}  
 
     function showNotification(message, isCorrect, userAnswer = "", correctAnswer = "") {
         const notification = document.getElementById('notification');
@@ -753,264 +634,292 @@ function removePunctuation(text) {
         }, 2000);
     }
 
+    let disableAutoPronunciation = false; // Mặc định là không tắt
+
+    function toggleReadingMode() {
+        disableAutoPronunciation = !disableAutoPronunciation;
+        const button = document.getElementById('readingModeButton');
+        button.classList.toggle('active');
+        button.textContent = disableAutoPronunciation 
+            ? "Bật âm thanh" 
+            : "Tắt âm thanh";
+        
+        showNotification(disableAutoPronunciation 
+            ? "Đã tắt âm thanh khi chuyển card" 
+            : "Đã bật âm thanh khi chuyển card", true);
+    }
+
+    // Sửa hàm displayWord
+    function displayWord() {  
+        if (audio) {
+            audio.stop();
+        }
+        
+        if (vocabList.length > 0 && currentIndex < vocabList.length) {  
+            const word = vocabList[currentIndex];  
+            
+            const frontCard = `  
+                <div class="card">  
+                    <span class="term" style="color: ${hiddenElements.term ? '#1c2025' : 'lightgreen'};">${word[0]}</span><br>  
+                    <span class="ipa" style="color: ${hiddenElements.ipa ? '#1c2025' : 'yellow'};">${word[1]}</span><br>                
+                    <span class="vietnamese" style="color: ${hiddenElements.vietnamese ? '#1c2025' : '#21a1f1'};">${word[2]}</span><br>                    
+                </div>  
+            `;  
+            
+            document.getElementById('vocabLabel').innerHTML = frontCard;  
+            
+            // Chỉ phát âm thanh nếu KHÔNG ở chế độ tắt âm thanh chuyển card
+            if (!disableAutoPronunciation) {
+                playPronunciation(word[0].toString());
+            }
+        } else {  
+            document.getElementById('vocabLabel').innerText = "Tất cả từ vựng đã hoàn thành.";  
+        }  
+        updateQuestionCounter();  
+    }
+    // Hàm mới cần thêm
+    function playAndContinue(text, callback) {
+        const sound = playPronunciation(text);
+        if (sound) {
+            sound.once('end', () => {
+                setTimeout(callback, 500); // Delay 500ms sau khi âm thanh kết thúc
+            });
+        } else {
+            setTimeout(callback, 2000); // Nếu không có âm thanh, đợi 2 giây
+        }
+    }
+
+    // Giữ nguyên tất cả các hàm kiểm tra đáp án (vẫn phát âm thanh khi sai/đúng)
     function checkAnswer() {
         const answerInput = document.getElementById('answerInput');
-        const userAnswer = removePunctuation(answerInput.value.toString().trim().toLowerCase());
+        const userAnswer = removePunctuation(answerInput.value);
         const word = vocabList[currentIndex];
-        const expectedText = isFront ? word[0] : word[3];
-        const normalizedExpectedText = removePunctuation(expectedText.toString().trim().toLowerCase());
+        const expectedText = word[0];
+        const normalizedExpectedText = removePunctuation(expectedText);
 
         if (userAnswer === normalizedExpectedText) {
             showNotification("Đúng!", true);
             
-            // Phát âm thanh và chỉ chuyển khi phát xong
-            playPronunciation(expectedText);
-            if (audio) {
-                audio.once('end', function() {
-                    setTimeout(() => {
-                        if (isFront) {
-                            flipCard();
-                        } else {
-                            nextWord();
-                        }
-                    }, 1000); // Thêm 1 giây buffer sau khi âm thanh kết thúc
-                });
-            } else {
-                // Nếu không có âm thanh, chờ 4 giây mặc định
-                setTimeout(() => {
-                    if (isFront) {
-                        flipCard();
-                    } else {
-                        nextWord();
-                    }
-                }, 4000);
-            }
+            // Sử dụng hàm mới playAndContinue
+            playAndContinue(expectedText, () => {
+                nextWord();
+            });
             
         } else {
             showNotification("Sai!", false, userAnswer, normalizedExpectedText);
-            playPronunciation(expectedText);
+            playPronunciation(expectedText); // Vẫn phát âm thanh khi sai
         }
         answerInput.value = '';
     }
 
-    function checkAnswerBack() {
-        const currentExample = removePunctuation(vocabList[currentIndex][3].toString().trim().toLowerCase());
-        const userAnswerBack = removePunctuation(document.getElementById("writingCheckBack").value.trim().toLowerCase());
-        document.getElementById("writingCheckBack").value = "";
+    // Giữ nguyên hàm playPronunciation (không cần sửa)
+    function playPronunciation(text) {
+        currentPronunciationText = text;
+        if (audio) audio.stop();
 
-        if (userAnswerBack === currentExample) {
-            showNotification("Đúng!", true);
-            document.getElementById('vocabLabel').innerHTML = `
-                <div class="card">
-                    <span class="example">${vocabList[currentIndex][3]}</span><br>
-                    <span class="example_ipa">${vocabList[currentIndex][4]}</span><br>
-                    <span class="example_vi">${vocabList[currentIndex][5]}</span>
-                </div>
-            `;
+        const audioEntry = audioMapping.find(item => item.text === text);
+        if (audioEntry) {
+            const audioFilePath = "LESSON/" + audioEntry.file;
+            audio = new Howl({
+                src: [audioFilePath],
+                html5: true,
+                rate: isSlowPronunciation ? 0.80 : 1,
+                onloaderror: function() {
+                    console.log("Lỗi phát âm thanh");
+                }
+            });
+            audio.play();
+            return audio;
+        }
+        console.log("Không tìm thấy âm thanh cho:", text);
+        return null;
+    }
+
+    let isSlowPronunciation = false; // Biến để theo dõi trạng thái phát âm chậm
+
+    function toggleSlowPronunciation() {
+        isSlowPronunciation = !isSlowPronunciation;
+        const button = document.getElementById('slowPronunciationButton');
+        button.innerText = isSlowPronunciation ? "Tắt Phát Âm Chậm" : "Phát Âm Chậm";
+        if (isSlowPronunciation) {
+            alert("Chế độ phát âm chậm đã bật.");
+        } else {
+            alert("Chế độ phát âm chậm đã tắt.");
+        }
+    }
+
+    function repeatPronunciation() {
+        if (currentPronunciationText) {
+            playPronunciation(currentPronunciationText);
+        } else {
+            const word = vocabList[currentIndex];
+            playPronunciation(word[0]);
+        }
+    }
+
+    function autoFlipLogic() {
+        if (audio) {
+            // Đợi âm thanh phát xong hoặc hết thời gian tối đa
+            const audioDuration = audio.duration() * 1000; // chuyển sang mili giây
+            const maxWaitTime = Math.max(audioDuration, 5000); // Lấy thời gian lớn hơn giữa độ dài audio và 5 giây
             
-            // Phát âm thanh và chỉ chuyển khi phát xong
-            playPronunciation(vocabList[currentIndex][3]);
-            if (audio) {
-                audio.once('end', function() {
-                    setTimeout(() => {
-                        nextWord();
-                    }, 1000); // Thêm 1 giây buffer
-                });
-            } else {
+            autoFlipTimeout = setTimeout(() => {
+                nextWord();
+            }, maxWaitTime);
+        } else {
+            // Xử lý khi không có audio
+            autoFlipTimeout = setTimeout(() => {
+                nextWord();
+            }, 5000);
+        }
+    }
+
+    function toggleAutoFlip() {
+        autoFlip = !autoFlip;
+        const button = document.getElementById('autoFlipButton');
+        button.textContent = autoFlip ? "Tắt Tự Động" : "Tự Động";
+        
+        if (autoFlip) {
+            startAutoFlip();
+        } else {
+            stopAutoFlip();
+        }
+    }
+
+    function startAutoFlip() {
+        if (!autoFlip) return;
+        
+        const word = vocabList[currentIndex];
+        if (!word) return;
+
+        // Sử dụng hàm playAndContinue đã có
+        playAndContinue(word[0], () => {
+            if (autoFlip) { // Kiểm tra lại trạng thái trước khi chuyển
                 setTimeout(() => {
                     nextWord();
-                }, 4000);
+                    if (autoFlip) {
+                        startAutoFlip(); // Tiếp tục chu kỳ
+                    }
+                }, 1000); // Thêm 1 giây nghỉ giữa các từ
             }
-            
+        });
+    }
+
+    function stopAutoFlip() {
+        clearTimeout(autoFlipTimeout);
+        if (audio) {
+            audio.stop();
+        }
+    }
+
+    function nextWord() {
+        if (!vocabList.length) return;
+        
+        // Dừng mọi xử lý autoFlip trước khi chuyển
+        stopAutoFlip();
+        
+        // Logic chuyển từ giữ nguyên...
+        if (isRandomMode) {
+            // ... (giữ nguyên phần random)
         } else {
-            document.getElementById('vocabLabel').innerHTML = `
-                <div class="card">
-                    <span class="example">${vocabList[currentIndex][3]}</span><br>
-                    <span class="example_ipa">${vocabList[currentIndex][4]}</span><br>
-                    <span class="example_vi">${vocabList[currentIndex][5]}</span>
-                    <div class="wrong-answer-container">
-                        <div class="wrong-answer">Bạn viết: ${userAnswerBack}</div>
-                        <div class="correct-answer">Câu đúng: ${currentExample}</div>
-                    </div>
-                </div>
-            `;
-            showNotification("Sai!", false, userAnswerBack, currentExample);
-            playPronunciation(vocabList[currentIndex][3]);
+            currentIndex = (currentIndex + 1) % vocabList.length;
+        }
+
+        displayWord();
+        
+        // Nếu autoFlip đang bật, tiếp tục chu kỳ
+        if (autoFlip) {
+            startAutoFlip();
         }
     }
 
-    function startSpeechRecognitionFront() {
-        if (!('webkitSpeechRecognition' in window)) {
-            alert("Trình duyệt không hỗ trợ nhận diện giọng nói");
-            return;
-        }
-
-        const recognition = new webkitSpeechRecognition();
-        recognition.lang = 'ja-JP'; // Luôn nhận diện tiếng Nhật
-        recognition.interimResults = false;
-
-        recognition.onresult = (event) => {
-            const speechResult = event.results[0][0].transcript;
-            processJapaneseSpeech(speechResult); // Hàm xử lý riêng cho tiếng Nhật
-        };
-
-        recognition.start();
+    function removePunctuation(text) {  
+        // Chuẩn hóa số trước khi xử lý
+        text = normalizeNumbers(text.toString().trim().toLowerCase());
+        
+        return text  
+            .replace(/[-]/g, ' ') // Thay thế dấu gạch nối bằng dấu cách  
+            .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()?"']/g, '') // Loại bỏ các ký tự khác  
+            .replace(/\s{2,}/g, ' ') // Thay thế nhiều dấu cách thành một dấu cách  
+            .trim(); // Loại bỏ dấu cách thừa ở đầu và cuối chuỗi  
     }
 
-    
+    // Thêm vào phần script
+    const numberWords = {
+        'zero': '0', 'one': '1', 'two': '2', 'three': '3', 'four': '4',
+        'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9',
+        'ten': '10', 'eleven': '11', 'twelve': '12', 'thirteen': '13', 
+        'fourteen': '14', 'fifteen': '15', 'sixteen': '16', 'seventeen': '17',
+        'eighteen': '18', 'nineteen': '19', 'twenty': '20', 'thirty': '30',
+        'forty': '40', 'fifty': '50', 'sixty': '60', 'seventy': '70',
+        'eighty': '80', 'ninety': '90'
+    };
 
-    function startSpeechRecognitionFront() {
-        if (!('webkitSpeechRecognition' in window)) {
-            alert("Trình duyệt của bạn không hỗ trợ nhận diện giọng nói.");
-            return;
-        }
-
-        const activeElement = document.activeElement;
-        const isV1 = activeElement.id === 'answerInput';
-        const isV2 = activeElement.id === 'writingCheckBack';
-
-        const recognition = new webkitSpeechRecognition();
-        recognition.lang = 'en-US';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        recognition.onstart = function() {
-            document.getElementById('recognizedSpeech').textContent = "Đang nghe...";
-            document.getElementById('speechResult').style.display = 'block';
-        };
-
-        recognition.onresult = function(event) {
-            const speechResult = event.results[0][0].transcript;
-            const normalizedSpeechResult = removePunctuation(speechResult.trim().toLowerCase());
-            
-            if (isV1) {
-                document.getElementById('answerInput').value = speechResult;
-                checkSpeechAnswer(normalizedSpeechResult, true);
-            } else if (isV2) {
-                document.getElementById('writingCheckBack').value = speechResult;
-                checkSpeechAnswer(normalizedSpeechResult, false);
-            } else {
-                document.getElementById('recognizedSpeech').textContent = speechResult;
+    // Hàm chuyển đổi từ số sang chữ (nếu có)
+    function normalizeNumbers(text) {
+        // Tách từng từ trong chuỗi
+        return text.split(' ').map(word => {
+            // Kiểm tra nếu từ là số dạng chữ
+            if (numberWords[word.toLowerCase()]) {
+                return numberWords[word.toLowerCase()];
             }
-            
-            recognition.stop();
-        };
-
-        recognition.onerror = function(event) {
-            console.error("Lỗi nhận diện giọng nói:", event.error);
-            document.getElementById('recognizedSpeech').textContent = "Lỗi: " + event.error;
-            recognition.stop();
-        };
-
-        recognition.start();
-    }
-// CẬP NHẬT HÀM NHẬN ĐIỆN GIỌNG NÓI
-    
-
-// HÀM XỬ LÝ RIÊNG CHO TIẾNG NHẬT
-    function processJapaneseSpeech(speechResult) {
-        const currentWord = vocabList[currentIndex];
-        const userAnswer = speechResult.trim();
-        
-        // Kiểm tra mặt trước (cột 0) hoặc mặt sau (cột 3)
-        const expectedAnswer = isFront ? currentWord[0] : currentWord[3]; 
-        
-        // So sánh không phân biệt dấu câu
-        if (userAnswer === expectedAnswer || 
-            userAnswer.replace(/[。．]/g, '') === expectedAnswer.replace(/[。．]/g, '')) {
-            
-            showNotification("正解！(Đúng!)", true);
-            playJapanesePronunciation(expectedAnswer);
-            
-            // Tự động lật thẻ/chuyển thẻ
-            setTimeout(() => {
-                if (isFront) flipCard();
-                else nextWord();
-            }, 1500);
-        } else {
-            showNotification(`違います！(Sai!) Đáp án: ${expectedAnswer}`, false);
-            playJapanesePronunciation(expectedAnswer);
-        }
+            // Kiểm tra nếu từ là số dạng số (để chuyển ngược lại)
+            if (!isNaN(word) && word.trim() !== '') {
+                return word; // Giữ nguyên số dạng số
+            }
+            return word;
+        }).join(' ');
     }
 
-// PHÁT ÂM THANH TIẾNG NHẬT
-    function playJapanesePronunciation(text) {
-        const audioFile = audioMapping.find(item => item.text === text)?.file;
-        if (audioFile) {
-            const sound = new Howl({
-                src: [`LESSON/${audioFile}`],
-                html5: true,
-                rate: isSlowPronunciation ? 0.8 : 1
-            });
-            sound.play();
-        }
-    } 
-       
     /* ========== SPEECH RECOGNITION - PHIÊN BẢN HOÀN CHỈNH ========== */
     function startSpeechRecognitionFront() {
-        if (!('webkitSpeechRecognition' in window)) {
-            showNotification("Trình duyệt không hỗ trợ nhận diện giọng nói", false);
-            return;
-        }
-
-        const activeElement = document.activeElement;
-        const isV1 = activeElement.id === 'answerInput';
-        const isV2 = activeElement.id === 'writingCheckBack';
-
-        // Tự động focus vào ô tương ứng nếu chưa focus
-        if (!isV1 && !isV2) {
-            document.getElementById('recognizedSpeech').textContent = "Đang nhận diện...";
-            document.getElementById('speechResult').style.display = 'block';
-        }
-
+        const answerInput = document.getElementById('answerInput');
+        answerInput.value = ''; // Reset khung tập viết
+        answerInput.focus(); // Focus vào khung
+        
+        const word = vocabList[currentIndex];
+        const isChinese = /[\u4e00-\u9fff]/.test(word[0]);
+        
         const recognition = new webkitSpeechRecognition();
-        recognition.lang = 'ja-JP';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        recognition.onresult = (event) => {
-            const speechResult = event.results[0][0].transcript.trim();
-            processSpeechResult(speechResult, isV1, isV2);
+        recognition.lang = isChinese ? 'zh-CN' : 'en-US';
+        
+        recognition.onresult = (e) => {
+            const result = e.results[0][0].transcript;
+            checkSpeechAnswer(result);
         };
-
-        recognition.onerror = (event) => {
-            console.error("Speech Recognition Error:", event.error);
-            showNotification("Lỗi nhận diện: " + event.error, false);
-        };
-
+        
         recognition.start();
-    }
-
-    /* ========== XỬ LÝ KẾT QUẢ NHẬN DIỆN ========== */
-    function processSpeechResult(speechResult, isV1, isV2) {
-        const normalizedResult = removePunctuation(speechResult.toLowerCase());
-        
-        // Hiển thị kết quả
-        document.getElementById('recognizedSpeech').textContent = speechResult;
-        
-        if (isV1 || isV2) {
-            const targetInput = isV1 ? 'answerInput' : 'writingCheckBack';
-            document.getElementById(targetInput).value = speechResult;
-            checkSpeechAnswer(normalizedResult, isV1);
-        }
     }
 
     /* ========== KIỂM TRA & XỬ LÝ KẾT QUẢ ========== */
-    function checkSpeechAnswer(userAnswer, isV1Mode) {
+    function checkSpeechAnswer(userAnswer) {
         const word = vocabList[currentIndex];
-        const [expectedText, pronunciationText] = getExpectedAnswer(word, isV1Mode);
+        const isChinese = /[\u4e00-\u9fff]/.test(word[0]);
+        const answerInput = document.getElementById('answerInput');
 
-        if (userAnswer === removePunctuation(expectedText.toLowerCase())) {
-            handleCorrectAnswer(pronunciationText, isV1Mode);
+        // Hiển thị kết quả nhận diện trong khung tập viết
+        answerInput.value = userAnswer;
+        
+        if ((isChinese && userAnswer === word[0]) || 
+            (!isChinese && removePunctuation(userAnswer) === removePunctuation(word[0]))) {
+            // Nói đúng
+            showNotification("Phát Âm Chuẩn", true);
+            playAndContinue(word[0], () => {
+                answerInput.value = ''; // Xóa nội dung khi chuyển card
+                nextWord();
+            });
         } else {
-            handleIncorrectAnswer(expectedText, pronunciationText, isV1Mode);
+            // Nói sai
+            answerInput.style.border = '2px solid #ff4444'; // Highlight đỏ
+            showNotification(`Nên nói: ${word[0]}${isChinese ? '' : ` (${word[1]})`}`, false);
+            playPronunciation(word[0]);
+            
+            // Tự động reset sau 3 giây
+            setTimeout(() => {
+                answerInput.style.border = '';
+                answerInput.value = '';
+            }, 3000);
         }
-    }
-
-    function getExpectedAnswer(word, isV1Mode) {
-        return isV1Mode
-            ? [isFront ? word[0] : word[3], isFront ? word[0] : word[3]]
-            : [word[3], word[3]];
     }
 
     function handleCorrectAnswer(pronunciationText, isV1Mode) {
@@ -1018,18 +927,13 @@ function removePunctuation(text) {
         const sound = playPronunciation(pronunciationText);
         
         sound?.on('end', () => {
-            if (isV1Mode) {
-                isFront ? flipCard() : nextWord();
-            } else {
-                nextWord();
-            }
+            nextWord();
         });
     }
 
     function handleIncorrectAnswer(expectedText, pronunciationText, isV1Mode) {
-        showNotification(`Sai rồi! Đáp án: "${expectedText}"`, false);
+        showNotification(`Sai!`, false);
         playPronunciation(pronunciationText);
-        if (!isV1Mode) flipCardToBack();
     }
 
     function playPronunciation(text) {
@@ -1056,6 +960,17 @@ function removePunctuation(text) {
     
     // Load danh sách bài học từ json_list.json khi trang được tải
     window.onload = function () {
+        // Kiểm tra hỗ trợ nhận diện giọng nói
+        if (!('webkitSpeechRecognition' in window)) {
+            alert("Trình duyệt không hỗ trợ nhận diện giọng nói. Vui lòng dùng Chrome hoặc Edge mới nhất.");
+            // Ẩn nút "Nói" nếu không hỗ trợ
+            document.getElementById('speakCheckFrontButton').style.display = 'none';
+        } 
+        else if (!new webkitSpeechRecognition().lang.includes('zh')) {
+            console.warn("Trình duyệt có thể nhận diện tiếng Trung không chính xác");
+            // Hiển thị cảnh báo nhẹ nếu cần
+            showNotification("Lưu ý: Nhận diện tiếng Trung có thể không chuẩn", false, 3000);
+        }
         loadLessonList();
         loadDifficultWords(); // Tải danh sách câu khó
     };

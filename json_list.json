@@ -19,6 +19,11 @@
             "name": "TV02.json",
             "mapping": "mapping_TV02.json",
             "audio": "audio_TV02"
+        },
+        {
+            "name": "TQ_02_xiaoxiao.json",
+            "mapping": "mapping_TQ_02_xiaoxiao.json",
+            "audio": "audio_TQ_02_xiaoxiao"
         }
     ]
 }
