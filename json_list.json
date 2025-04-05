@@ -21,9 +21,9 @@
             "audio": "audio_TV02"
         },
         {
-            "name": "TQ_02_xiaoxiao.json",
-            "mapping": "mapping_TQ_02_xiaoxiao.json",
-            "audio": "audio_TQ_02_xiaoxiao"
+            "name": "TQCB_01_xiaoxiao.json",
+            "mapping": "mapping_TQCB_01_xiaoxiao.json",
+            "audio": "audio_TQCB_01_xiaoxiao"
         }
     ]
 }
