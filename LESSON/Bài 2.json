@@ -1,0 +1,402 @@
+[
+    [
+        "いぶつ",
+        "ibutsu",
+        "dị vật",
+        "いぶつ",
+        "ibutsu",
+        "dị vật"
+    ],
+    [
+        "とりのぞく",
+        "torinozoku",
+        "loại bỏ",
+        "とりのぞく",
+        "torinozoku",
+        "loại bỏ"
+    ],
+    [
+        "こうしついぶつ",
+        "kōshitsui butsu",
+        "dị vật cứng",
+        "こうしついぶつ",
+        "kōshitsui butsu",
+        "dị vật cứng"
+    ],
+    [
+        "こんにゅう",
+        "konnyū",
+        "lẫn vào",
+        "こんにゅう",
+        "konnyū",
+        "lẫn vào"
+    ],
+    [
+        "ぼうし。ふせぐ",
+        "bōshi, fusegu",
+        "phòng ngừa, phòng tránh ",
+        "ぼうし。ふせぐ",
+        "bōshi, fusegu",
+        "phòng ngừa, phòng tránh "
+    ],
+    [
+        "せんじょうする",
+        "senjōsuru",
+        "rửa",
+        "せんじょうする",
+        "senjōsuru",
+        "rửa"
+    ],
+    [
+        "したしょり",
+        "shitashori",
+        "sơ chế",
+        "したしょり",
+        "shitashori",
+        "sơ chế"
+    ],
+    [
+        "かねつちょうり",
+        "kanetsuchōri",
+        "chế biến gia nhiệt",
+        "かねつちょうり",
+        "kanetsuchōri",
+        "chế biến gia nhiệt"
+    ],
+    [
+        "ほね",
+        "hone",
+        "xương",
+        "ほね",
+        "hone",
+        "xương"
+    ],
+    [
+        "ちょうり",
+        "chōri",
+        "chế biến, nấu ",
+        "ちょうり",
+        "chōri",
+        "chế biến, nấu "
+    ],
+    [
+        "ふた",
+        "futa",
+        "nắp",
+        "ふた",
+        "futa",
+        "nắp"
+    ],
+    [
+        "むし",
+        "mushi",
+        "côn trùng",
+        "むし",
+        "mushi",
+        "côn trùng"
+    ],
+    [
+        "かみのけ",
+        "kaminoke",
+        "tóc",
+        "かみのけ",
+        "kaminoke",
+        "tóc"
+    ],
+    [
+        "しへん",
+        "shihen",
+        "giấy vụn",
+        "しへん",
+        "shihen",
+        "giấy vụn"
+    ],
+    [
+        "はっけん",
+        "hakken",
+        "phát hiện",
+        "はっけん",
+        "hakken",
+        "phát hiện"
+    ],
+    [
+        "せきにんしゃ",
+        "sekininsha",
+        "người quản lý",
+        "せきにんしゃ",
+        "sekininsha",
+        "người quản lý"
+    ],
+    [
+        "さぎょうしゃ",
+        "sagyōsha",
+        "người lao động",
+        "さぎょうしゃ",
+        "sagyōsha",
+        "người lao động"
+    ],
+    [
+        "ほうこくする",
+        "hōkokusuru",
+        "báo cáo",
+        "ほうこくする",
+        "hōkokusuru",
+        "báo cáo"
+    ],
+    [
+        "アレルギー=アトピー",
+        "arerugī busshitsu",
+        "chất dị ứng",
+        "アレルギー=アトピー",
+        "arerugī busshitsu",
+        "chất dị ứng"
+    ],
+    [
+        "ぶっしつ",
+        "busshitsu",
+        "chất",
+        "ぶっしつ",
+        "busshitsu",
+        "chất"
+    ],
+    [
+        "さっきんざい",
+        "sakkinzai",
+        "chất sát khuẩn",
+        "さっきんざい",
+        "sakkinzai",
+        "chất sát khuẩn"
+    ],
+    [
+        "せんじょうざい",
+        "senjōzai",
+        "chất tẩy rửa",
+        "せんじょうざい",
+        "senjōzai",
+        "chất tẩy rửa"
+    ],
+    [
+        "やくざい",
+        "yakuzai",
+        "hóa chất",
+        "やくざい",
+        "yakuzai",
+        "hóa chất"
+    ],
+    [
+        "はんのう",
+        "han'nō",
+        "phản ứng",
+        "はんのう",
+        "han'nō",
+        "phản ứng"
+    ],
+    [
+        "しょうじょう",
+        "shōjō",
+        "triệu chứng",
+        "しょうじょう",
+        "shōjō",
+        "triệu chứng"
+    ],
+    [
+        "かゆみ",
+        "kayumi",
+        "ngứa",
+        "かゆみ",
+        "kayumi",
+        "ngứa"
+    ],
+    [
+        "じんましん",
+        "jinmashin",
+        "nổi mẩn đỏ, mề đay ",
+        "じんましん",
+        "jinmashin",
+        "nổi mẩn đỏ, mề đay "
+    ],
+    [
+        "かこうしょくひん",
+        "kakōshokuhin",
+        "thực phẩm đã chế biến",
+        "かこうしょくひん",
+        "kakōshokuhin",
+        "thực phẩm đã chế biến"
+    ],
+    [
+        "ひょうじする",
+        "hyōjisuru",
+        "biểu thị, ghi nhãn ",
+        "ひょうじする",
+        "hyōjisuru",
+        "biểu thị, ghi nhãn "
+    ],
+    [
+        "ひょうじぎむ",
+        "hyōjigimu",
+        "bắt buộc ghi nhãn",
+        "ひょうじぎむ",
+        "hyōjigimu",
+        "bắt buộc ghi nhãn"
+    ],
+    [
+        "ひょうじをすいしょうする",
+        "hyōji o suishōsuru",
+        "khuyến khích ghi nhãn",
+        "ひょうじをすいしょうする",
+        "hyōji o suishōsuru",
+        "khuyến khích ghi nhãn"
+    ],
+    [
+        "とくていげんざいりょう",
+        "tokuteigenzaimyō",
+        "nguyên liệu đặc biệt",
+        "とくていげんざいりょう",
+        "tokuteigenzaimyō",
+        "nguyên liệu đặc biệt"
+    ],
+    [
+        "とくていげんざいりょうにじゅんずる",
+        "tokuteigenzaimyō ni junzuru",
+        "nguyên liệu bán đặc biệt",
+        "とくていげんざいりょうにじゅんずる",
+        "tokuteigenzaimyō ni junzuru",
+        "nguyên liệu bán đặc biệt"
+    ],
+    [
+        "のこる",
+        "nokoru",
+        "sót lại, còn lại ",
+        "のこる",
+        "nokoru",
+        "sót lại, còn lại "
+    ],
+    [
+        "れいぞうこ",
+        "reizōko",
+        "tủ lạnh",
+        "れいぞうこ",
+        "reizōko",
+        "tủ lạnh"
+    ],
+    [
+        "れいとうこ",
+        "reitōko",
+        "tủ đông",
+        "れいとうこ",
+        "reitōko",
+        "tủ đông"
+    ],
+    [
+        "じょうけん",
+        "jōken",
+        "điều kiện",
+        "じょうけん",
+        "jōken",
+        "điều kiện"
+    ],
+    [
+        "ばあい",
+        "baai",
+        "trường hợp",
+        "ばあい",
+        "baai",
+        "trường hợp"
+    ],
+    [
+        "うけいれる",
+        "ukeireru",
+        "nhập vào",
+        "うけいれる",
+        "ukeireru",
+        "nhập vào"
+    ],
+    [
+        "しょくちゅうどく",
+        "shokuchūdoku",
+        "ngộ độc thực phẩm",
+        "しょくちゅうどく",
+        "shokuchūdoku",
+        "ngộ độc thực phẩm"
+    ],
+    [
+        "ふえる",
+        "fueru",
+        "gia tăng, phát triển ",
+        "ふえる",
+        "fueru",
+        "gia tăng, phát triển "
+    ],
+    [
+        "げり",
+        "geri",
+        "tiêu chảy",
+        "げり",
+        "geri",
+        "tiêu chảy"
+    ],
+    [
+        "はっしょう",
+        "hasshō",
+        "phát bệnh",
+        "はっしょう",
+        "hasshō",
+        "phát bệnh"
+    ],
+    [
+        "おにぎり",
+        "onigiri",
+        "cơm nắm",
+        "おにぎり",
+        "onigiri",
+        "cơm nắm"
+    ],
+    [
+        "つけない",
+        "tsukenai",
+        "không làm bám dính",
+        "つけない",
+        "tsukenai",
+        "không làm bám dính"
+    ],
+    [
+        "ふやさない",
+        "fuyasanai",
+        "không làm gia tăng",
+        "ふやさない",
+        "fuyasanai",
+        "không làm gia tăng"
+    ],
+    [
+        "ころす。やっつける",
+        "korosu, yattsukeru",
+        "tiêu diệt",
+        "ころす。やっつける",
+        "korosu, yattsukeru",
+        "tiêu diệt"
+    ],
+    [
+        "さぎょうかいし",
+        "sagyōkaishi",
+        "trước khi bắt đầu làm việc",
+        "さぎょうかいし",
+        "sagyōkaishi",
+        "trước khi bắt đầu làm việc"
+    ],
+    [
+        "おんど",
+        "ondo",
+        "nhiệt độ",
+        "おんど",
+        "ondo",
+        "nhiệt độ"
+    ],
+    [
+        "のうど",
+        "nōdo",
+        "nồng độ",
+        "のうど",
+        "nōdo",
+        "nồng độ"
+    ]
+]
