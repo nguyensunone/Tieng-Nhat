@@ -1,31 +1,6 @@
 {
     "lessons": [
         {
-            "name": "HT01.json",
-            "mapping": "mapping_HT01.json",
-            "audio": "audio_HT01"
-        },
-        {
-            "name": "HT02.json",
-            "mapping": "mapping_HT02.json",
-            "audio": "audio_HT02"
-        },
-        {
-            "name": "TV01.json",
-            "mapping": "mapping_TV01.json",
-            "audio": "audio_TV01"
-        },
-        {
-            "name": "TV02.json",
-            "mapping": "mapping_TV02.json",
-            "audio": "audio_TV02"
-        },
-        {
-            "name": "TQCB_01_xiaoxiao.json",
-            "mapping": "mapping_TQCB_01_xiaoxiao.json",
-            "audio": "audio_TQCB_01_xiaoxiao"
-        },
-        {
             "name": "Bài 1.json",
             "mapping": "mapping_Bài 1.json",
             "audio": "audio_Bài 1"
