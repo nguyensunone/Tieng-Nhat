@@ -24,6 +24,11 @@
             "name": "TQCB_01_xiaoxiao.json",
             "mapping": "mapping_TQCB_01_xiaoxiao.json",
             "audio": "audio_TQCB_01_xiaoxiao"
+        },
+        {
+            "name": "Bài 1.json",
+            "mapping": "mapping_Bài 1.json",
+            "audio": "audio_Bài 1"
         }
     ]
 }
