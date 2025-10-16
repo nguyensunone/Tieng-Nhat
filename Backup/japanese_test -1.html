@@ -243,9 +243,6 @@
 <label>  
     <input type="checkbox" id="ignorePunctuation" checked> Bỏ qua dấu câu  
 </label>
-        <label>
-            <input type="checkbox" id="toggleAudioCheckbox" onchange="toggleAudio()" checked> Phát âm
-        </label>
 </div>
 
 <div id="notification"></div>
@@ -295,7 +292,6 @@
     let currentPronunciationText = '';
     let isRandomMode = false; // Mặc định là chế độ theo thứ tự
     let audioMapping = []; // Lưu trữ thông tin âm thanh từ file JSON
-    let isAudioEnabled = true; // Mặc định bật phát âm
     let recognition;
     let isSpeechRecognitionActive = false;
     let sessionVocabList = []; // Danh sách từ vựng cho phiên học hiện tại
@@ -660,49 +656,11 @@ function toggleSlowPronunciation() {
     }
 }
 
-// Toggle audio on/off
-function toggleAudio() {
-    const checkbox = document.getElementById('toggleAudioCheckbox');
-    isAudioEnabled = checkbox.checked;
-    const buttonText = isAudioEnabled ? 'Phát âm' : 'Tắt phát âm';
-    // short visual feedback
-    const notification = document.getElementById('notification');
-    notification.textContent = isAudioEnabled ? 'Phát âm đã bật' : 'Phát âm đã tắt';
-    notification.style.backgroundColor = isAudioEnabled ? '#4caf50' : '#f44336';
-    notification.style.display = 'block';
-    setTimeout(() => { notification.style.display = 'none'; }, 1500);
-
-    // Stop any playing audio when audio is turned off
-    if (!isAudioEnabled && audio) {
-        try { audio.stop(); audio.unload(); } catch (e) { console.warn('Error stopping audio:', e); }
-        audio = null;
-        clearTimeout(autoFlipTimeout);
-        // If autoFlip was enabled, we still want to schedule auto flip without audio
-        if (autoFlip) {
-            autoFlipTimeout = setTimeout(() => {
-                if (!isFront) nextWord(); else flipCard();
-            }, 5000);
-        }
-    }
-}
-
 function playPronunciation(text) {
     currentPronunciationText = text;
     if (audio) {
         audio.stop();
         audio.unload(); // Giải phóng tài nguyên âm thanh cũ
-    }
-
-    // If audio is disabled, skip loading/playing audio but still respect autoFlip by using a default timeout
-    if (!isAudioEnabled) {
-        console.log('Audio is disabled; skipping playback for:', text);
-        if (autoFlip) {
-            clearTimeout(autoFlipTimeout);
-            autoFlipTimeout = setTimeout(() => {
-                if (!isFront) nextWord(); else flipCard();
-            }, 5000);
-        }
-        return;
     }
 
     const audioEntry = audioMapping.find(item => item.text === text);
