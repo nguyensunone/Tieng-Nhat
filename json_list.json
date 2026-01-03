@@ -1,29 +1,9 @@
 {
     "lessons": [
         {
-            "name": "Bài 1.json",
-            "mapping": "mapping_Bài 1.json",
-            "audio": "audio_Bài 1"
-        },
-        {
-            "name": "Bài 2.json",
-            "mapping": "mapping_Bài 2.json",
-            "audio": "audio_Bài 2"
-        },
-        {
-            "name": "Bài 3.json",
-            "mapping": "mapping_Bài 3.json",
-            "audio": "audio_Bài 3"
-        },
-        {
-            "name": "Bài 4.json",
-            "mapping": "mapping_Bài 4.json",
-            "audio": "audio_Bài 4"
-        },
-        {
-            "name": "Bài 5.json",
-            "mapping": "mapping_Bài 5.json",
-            "audio": "audio_Bài 5"
+            "name": "bai3.json",
+            "mapping": "mapping_bai3.json",
+            "audio": "audio_bai3"
         }
     ]
 }
