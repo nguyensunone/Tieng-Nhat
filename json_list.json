@@ -1,9 +1,19 @@
 {
     "lessons": [
         {
-            "name": "bai3.json",
-            "mapping": "mapping_bai3.json",
-            "audio": "audio_bai3"
+            "name": "Bai 3.json",
+            "mapping": "mapping_Bai 3.json",
+            "audio": "audio_Bai 3"
+        },
+        {
+            "name": "Bài 6.json",
+            "mapping": "mapping_Bài 6.json",
+            "audio": "audio_Bài 6"
+        },
+        {
+            "name": "Bài 7.json",
+            "mapping": "mapping_Bài 7.json",
+            "audio": "audio_Bài 7"
         }
     ]
 }

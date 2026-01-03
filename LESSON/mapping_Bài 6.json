@@ -1,0 +1,434 @@
+[
+  {
+    "id": "a_0",
+    "text": "町にあるもの",
+    "file": "audio_Bài 6/gtts_a_0.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_1",
+    "text": "もの",
+    "file": "audio_Bài 6/gtts_a_1.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_2",
+    "text": "信号",
+    "file": "audio_Bài 6/gtts_a_2.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_3",
+    "text": "横断歩道",
+    "file": "audio_Bài 6/gtts_a_3.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_4",
+    "text": "角",
+    "file": "audio_Bài 6/gtts_a_4.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_5",
+    "text": "交差点",
+    "file": "audio_Bài 6/gtts_a_5.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_6",
+    "text": "道",
+    "file": "audio_Bài 6/gtts_a_6.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_7",
+    "text": "橋",
+    "file": "audio_Bài 6/gtts_a_7.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_8",
+    "text": "道案内",
+    "file": "audio_Bài 6/gtts_a_8.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_9",
+    "text": "まっすぐ",
+    "file": "audio_Bài 6/gtts_a_9.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_10",
+    "text": "左",
+    "file": "audio_Bài 6/gtts_a_10.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_11",
+    "text": "曲がる",
+    "file": "audio_Bài 6/gtts_a_11.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_12",
+    "text": "右",
+    "file": "audio_Bài 6/gtts_a_12.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_13",
+    "text": "渡る",
+    "file": "audio_Bài 6/gtts_a_13.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_14",
+    "text": "一つ目",
+    "file": "audio_Bài 6/gtts_a_14.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_15",
+    "text": "二つ目",
+    "file": "audio_Bài 6/gtts_a_15.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_16",
+    "text": "バス停",
+    "file": "audio_Bài 6/gtts_a_16.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_17",
+    "text": "郵便局",
+    "file": "audio_Bài 6/gtts_a_17.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_18",
+    "text": "デパート",
+    "file": "audio_Bài 6/gtts_a_18.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_19",
+    "text": "科学",
+    "file": "audio_Bài 6/gtts_a_19.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_20",
+    "text": "博物館",
+    "file": "audio_Bài 6/gtts_a_20.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_21",
+    "text": "ずっと",
+    "file": "audio_Bài 6/gtts_a_21.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_22",
+    "text": "市立",
+    "file": "audio_Bài 6/gtts_a_22.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_23",
+    "text": "すぐ",
+    "file": "audio_Bài 6/gtts_a_23.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_24",
+    "text": "曲がったところ",
+    "file": "audio_Bài 6/gtts_a_24.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_25",
+    "text": "銀行",
+    "file": "audio_Bài 6/gtts_a_25.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_26",
+    "text": "神社",
+    "file": "audio_Bài 6/gtts_a_26.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_27",
+    "text": "駐車場",
+    "file": "audio_Bài 6/gtts_a_27.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_28",
+    "text": "交番",
+    "file": "audio_Bài 6/gtts_a_28.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_29",
+    "text": "病院",
+    "file": "audio_Bài 6/gtts_a_29.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_30",
+    "text": "黒い",
+    "file": "audio_Bài 6/gtts_a_30.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_31",
+    "text": "白い",
+    "file": "audio_Bài 6/gtts_a_31.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_32",
+    "text": "青い",
+    "file": "audio_Bài 6/gtts_a_32.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_33",
+    "text": "ビル",
+    "file": "audio_Bài 6/gtts_a_33.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_34",
+    "text": "アジア食材",
+    "file": "audio_Bài 6/gtts_a_34.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_35",
+    "text": "そちら",
+    "file": "audio_Bài 6/gtts_a_35.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_36",
+    "text": "北口",
+    "file": "audio_Bài 6/gtts_a_36.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_37",
+    "text": "間",
+    "file": "audio_Bài 6/gtts_a_37.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_38",
+    "text": "そうすると",
+    "file": "audio_Bài 6/gtts_a_38.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_39",
+    "text": "見える",
+    "file": "audio_Bài 6/gtts_a_39.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_40",
+    "text": "お待ちしております",
+    "file": "audio_Bài 6/gtts_a_40.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_41",
+    "text": "帰る",
+    "file": "audio_Bài 6/gtts_a_41.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_42",
+    "text": "高校",
+    "file": "audio_Bài 6/gtts_a_42.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_43",
+    "text": "送る",
+    "file": "audio_Bài 6/gtts_a_43.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_44",
+    "text": "大きな",
+    "file": "audio_Bài 6/gtts_a_44.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_45",
+    "text": "入る",
+    "file": "audio_Bài 6/gtts_a_45.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_46",
+    "text": "どの辺",
+    "file": "audio_Bài 6/gtts_a_46.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_47",
+    "text": "ここでいいです",
+    "file": "audio_Bài 6/gtts_a_47.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  }
+]

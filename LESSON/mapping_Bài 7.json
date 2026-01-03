@@ -1,0 +1,299 @@
+[
+  {
+    "id": "a_0",
+    "text": "駅",
+    "file": "audio_Bài 7/gtts_a_0.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_1",
+    "text": "受付",
+    "file": "audio_Bài 7/gtts_a_1.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_2",
+    "text": "ホール",
+    "file": "audio_Bài 7/gtts_a_2.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_3",
+    "text": "会社",
+    "file": "audio_Bài 7/gtts_a_3.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_4",
+    "text": "門",
+    "file": "audio_Bài 7/gtts_a_4.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_5",
+    "text": "集合する",
+    "file": "audio_Bài 7/gtts_a_5.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_6",
+    "text": "では",
+    "file": "audio_Bài 7/gtts_a_6.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_7",
+    "text": "案内する",
+    "file": "audio_Bài 7/gtts_a_7.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_8",
+    "text": "待ち合わせ",
+    "file": "audio_Bài 7/gtts_a_8.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_9",
+    "text": "イベント",
+    "file": "audio_Bài 7/gtts_a_9.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_10",
+    "text": "始まる",
+    "file": "audio_Bài 7/gtts_a_10.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_11",
+    "text": "スタッフ",
+    "file": "audio_Bài 7/gtts_a_11.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_12",
+    "text": "前",
+    "file": "audio_Bài 7/gtts_a_12.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_13",
+    "text": "待ち合わせする",
+    "file": "audio_Bài 7/gtts_a_13.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_14",
+    "text": "平和",
+    "file": "audio_Bài 7/gtts_a_14.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_15",
+    "text": "鳥",
+    "file": "audio_Bài 7/gtts_a_15.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_16",
+    "text": "像",
+    "file": "audio_Bài 7/gtts_a_16.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_17",
+    "text": "事故",
+    "file": "audio_Bài 7/gtts_a_17.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_18",
+    "text": "止まる",
+    "file": "audio_Bài 7/gtts_a_18.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_19",
+    "text": "連絡する",
+    "file": "audio_Bài 7/gtts_a_19.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_20",
+    "text": "ねぼうする",
+    "file": "audio_Bài 7/gtts_a_20.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_21",
+    "text": "今から",
+    "file": "audio_Bài 7/gtts_a_21.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_22",
+    "text": "急ぐ",
+    "file": "audio_Bài 7/gtts_a_22.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_23",
+    "text": "先に",
+    "file": "audio_Bài 7/gtts_a_23.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_24",
+    "text": "始める",
+    "file": "audio_Bài 7/gtts_a_24.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_25",
+    "text": "道に迷う",
+    "file": "audio_Bài 7/gtts_a_25.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_26",
+    "text": "遅れる",
+    "file": "audio_Bài 7/gtts_a_26.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_27",
+    "text": "着く",
+    "file": "audio_Bài 7/gtts_a_27.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_28",
+    "text": "大丈夫",
+    "file": "audio_Bài 7/gtts_a_28.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_29",
+    "text": "時間",
+    "file": "audio_Bài 7/gtts_a_29.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_30",
+    "text": "まちがえる",
+    "file": "audio_Bài 7/gtts_a_30.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_31",
+    "text": "待つ",
+    "file": "audio_Bài 7/gtts_a_31.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_32",
+    "text": "カフェ",
+    "file": "audio_Bài 7/gtts_a_32.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  }
+]
