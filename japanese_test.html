@@ -230,6 +230,7 @@
     <select id="audioEngineSelector" style="padding:8px; margin-left:8px; border-radius:6px;">
         <option value="gTTS">gTTS (Japanese)</option>
     </select>
+    <label style="margin-left:8px;">Khoảng nghỉ (s): <input type="number" id="autoIntervalInput" min="1" value="4" style="width:80px; margin-left:6px;"></label>
     <button id="bookmarkBtn" onclick="saveBookmark()" style="margin-left:6px; padding:8px 12px;">🔖 Lưu</button>
     <button id="loadBookmarkBtn" onclick="loadBookmark()" style="margin-left:6px; padding:8px 12px;">📂 Tải</button>
     <input type="number" id="rangeStart" placeholder="Từ câu" min="1" style="width: 80px;">
@@ -247,7 +248,11 @@
     let currentIndex = 0;
     let autoFlip = false;
     let audio;
-    let autoFlipTimeout;
+    let lastAudioSrc = '';
+    let lastPlayTimestamp = 0;
+    const PLAY_DEBOUNCE_MS = 800;
+    let autoFlipInterval = null;
+    let autoIntervalMs = 4000; // default 4 seconds
     let isFront = true;
     let currentPronunciationText = '';
     let skipPlayOnDisplay = false;
@@ -329,7 +334,7 @@
 
     function nextWord() {
         if (vocabList.length === 0) return;
-        clearTimeout(autoFlipTimeout);
+        // interval-driven autoFlip; don't clear interval here
 
         if (isRandomMode) {
             if (askedIndices.length >= vocabList.length) {
@@ -389,10 +394,13 @@
 
             document.getElementById('vocabLabel').innerHTML = isFront ? frontCard : backCard;
             const pronunciationText = word[0].toString();
-            if (skipPlayOnDisplay) {
-                skipPlayOnDisplay = false;
-            } else {
-                playPronunciation(pronunciationText);
+            // Only play pronunciation when showing the front side to avoid double-play
+            if (isFront) {
+                if (skipPlayOnDisplay) {
+                    skipPlayOnDisplay = false;
+                } else {
+                    playPronunciation(pronunciationText);
+                }
             }
             
             document.getElementById('answerInput').classList.remove('typing', 'checked');
@@ -548,8 +556,20 @@
 
     function playPronunciation(text, onEnd) {
         currentPronunciationText = text;
+
+        // Debounce repeated play requests for the same text
+        try {
+            const now = Date.now();
+            if (text === lastAudioSrc && (now - lastPlayTimestamp) < PLAY_DEBOUNCE_MS) {
+                return;
+            }
+            lastPlayTimestamp = now;
+            lastAudioSrc = text;
+        } catch (e) {}
+
         if (audio) {
             try { audio.stop(); audio.unload(); } catch (e) {}
+            audio = null;
         }
         const engineSel = document.getElementById('audioEngineSelector');
         const preferredEngine = engineSel ? engineSel.value : (localStorage.getItem('preferred_tts_engine') || 'gTTS');
@@ -557,33 +577,27 @@
         if (!audioEntry) audioEntry = audioMapping.find(item => item.text === text);
         if (audioEntry) {
             const audioFilePath = "LESSON/" + audioEntry.file;
+            // If the same file is already loading/playing, avoid creating another Howl
+            if (audio && lastAudioSrc === audioFilePath) return;
             audio = new Howl({
                 src: [audioFilePath],
                 html5: true,
                 rate: 1,
                 onload: function() {
-                    audio.play();
-
-                    if (autoFlip) {
-                        clearTimeout(autoFlipTimeout);
-                        const duration = audio.duration() * 1000;
-                        const bufferTime = 2000;
-
-                        autoFlipTimeout = setTimeout(() => {
-                            if (!isFront) {
-                                nextWord();
-                            } else {
-                                flipCard();
-                            }
-                        }, duration + bufferTime);
-                    }
+                    try { audio.play(); } catch (e) {}
                 },
                 onend: function() {
                     try { console.log('Phát âm hoàn tất'); } catch (e) {}
+                    try { audio.unload(); } catch (e) {}
+                    audio = null;
+                    lastAudioSrc = '';
                     if (typeof onEnd === 'function') onEnd();
                 },
                 onloaderror: function(id, error) {
                     console.error("Lỗi phát âm thanh:", error);
+                    try { audio.unload(); } catch (e) {}
+                    audio = null;
+                    lastAudioSrc = '';
                     if (typeof onEnd === 'function') {
                         setTimeout(onEnd, 800);
                     }
@@ -596,10 +610,9 @@
                 if ('speechSynthesis' in window) {
                     const u = new SpeechSynthesisUtterance(text);
                     u.lang = 'ja-JP';
-                    window.speechSynthesis.cancel();
+                    try { window.speechSynthesis.cancel(); } catch (e) {}
                     window.speechSynthesis.speak(u);
                     if (typeof onEnd === 'function') {
-                        // estimate duration ~ 800ms per sentence
                         setTimeout(onEnd, 1000);
                     }
                 } else {
@@ -609,15 +622,7 @@
                 if (typeof onEnd === 'function') setTimeout(onEnd, 800);
             }
 
-            if (autoFlip) {
-                autoFlipTimeout = setTimeout(() => {
-                    if (!isFront) {
-                        nextWord();
-                    } else {
-                        flipCard();
-                    }
-                }, 5000);
-            }
+            // no per-audio auto flip here; interval mode controls flipping
         }
     }
 
@@ -631,22 +636,40 @@
         }
     }
 
-    function toggleAutoFlip() {
-        autoFlip = !autoFlip;
+    function startAutoFlip() {
+        if (autoFlipInterval) return;
+        autoFlip = true;
         const button = document.getElementById('autoFlipButton');
-        button.innerText = autoFlip ? "Tắt Tự Động" : "Tự Động";
-        
-        if (autoFlip) {
-            clearTimeout(autoFlipTimeout);
-            const word = vocabList[currentIndex];
-            const textToPlay = isFront ? word[0] : word[3];
-            playPronunciation(textToPlay);
-        } else {
-            clearTimeout(autoFlipTimeout);
-            if (audio) {
-                audio.stop();
-            }
+        button.innerText = "Tắt Tự Động";
+            autoFlipInterval = setInterval(() => {
+            try {
+                if (!isFront) {
+                    nextWord();
+                } else {
+                    flipCard();
+                }
+            } catch (e) {}
+            }, autoIntervalMs);
+    }
+
+    function stopAutoFlip() {
+        autoFlip = false;
+        const button = document.getElementById('autoFlipButton');
+        button.innerText = "Tự Động";
+        if (autoFlipInterval) {
+            clearInterval(autoFlipInterval);
+            autoFlipInterval = null;
         }
+        if (audio) {
+            try { audio.stop(); } catch (e) {}
+        }
+        if (window.speechSynthesis) {
+            try { window.speechSynthesis.cancel(); } catch (e) {}
+        }
+    }
+
+    function toggleAutoFlip() {
+        if (autoFlipInterval) stopAutoFlip(); else startAutoFlip();
     }
 
     function normalizeText(text) {
@@ -878,6 +901,21 @@
             const saved = localStorage.getItem('preferred_tts_engine');
             if (saved) aSel.value = saved;
             aSel.addEventListener('change', (e) => { localStorage.setItem('preferred_tts_engine', e.target.value); });
+        }
+        const ai = document.getElementById('autoIntervalInput');
+        if (ai) {
+            const savedS = localStorage.getItem('auto_interval_s');
+            if (savedS) ai.value = savedS;
+            autoIntervalMs = (parseFloat(ai.value) || 4) * 1000;
+            ai.addEventListener('change', (e) => {
+                const v = Math.max(1, parseFloat(e.target.value) || 4);
+                localStorage.setItem('auto_interval_s', v);
+                autoIntervalMs = v * 1000;
+                if (autoFlipInterval) {
+                    stopAutoFlip();
+                    startAutoFlip();
+                }
+            });
         }
     };
 </script>
