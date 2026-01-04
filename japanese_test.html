@@ -15,13 +15,7 @@
             color: #61dafb;
             text-align: center;
         }
-        #vocabLabel {
-            font-size: 30px;
-            margin: 20px 0;
-            border: 2px solid #61dafb;
-            padding: 10px;
-            text-align: center;
-        }
+        /* vocabLabel styling defined later with full layout */
         .card {
             background-color: #1c2025;
             padding: 20px;
@@ -113,6 +107,21 @@
             resize: vertical;
             overflow-y: auto;
         }
+        #answerInputV4 {
+            width: 80%;
+            max-width: 800px;
+            height: 40px;
+            margin: 20px auto;
+            display: block;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1c2025;
+            color: #61dafb;
+            resize: vertical;
+            overflow-y: auto;
+        }
         #vocabLabel {
             font-size: 24px;
             margin: 20px 0;
@@ -170,6 +179,21 @@
             transition: background-color 0.3s;
         }
         #checkAnswerV3Button:hover {
+            background-color: #21a1f1;
+        }
+        #checkAnswerV4Button {
+            display: inline-block;
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #61dafb;
+            color: #282c34;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #checkAnswerV4Button:hover {
             background-color: #21a1f1;
         }
         #notification {
@@ -247,11 +271,13 @@
 <textarea id="answerInput" placeholder="Kiểm tra kanji (V1)" onkeydown="handleKeyDown(event)"></textarea>
 <textarea id="answerInputV2" placeholder="Kiểm tra hiragana (V2)" onkeydown="handleKeyDownV2(event)"></textarea>
 <textarea id="answerInputV3" placeholder="Kiểm tra romaji (V3)" onkeydown="handleKeyDownV3(event)"></textarea>
+<textarea id="answerInputV4" placeholder="Kiểm tra tiếng Việt (V4)" onkeydown="handleKeyDownV4(event)"></textarea>
 
 <div style="text-align: center;">
     <button id="checkAnswerButton" onclick="checkAnswer()">V1</button>
     <button id="checkAnswerV2Button" onclick="checkAnswerV2()">V2</button>
     <button id="checkAnswerV3Button" onclick="checkAnswerV3()">V3</button>
+    <button id="checkAnswerV4Button" onclick="checkAnswerV4()">V4</button>
 </div>
 
 <div style="text-align: center;">
@@ -280,7 +306,9 @@
 </div>
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+<!-- Removed heavy Kuroshiro/kuromoji scripts to avoid blocking on GitHub Pages -->
+<script src="https://unpkg.com/wanakana/umd/wanakana.min.js"></script>
+<!-- Removed unused xlsx include for lighter load -->
 <!-- Removed heavy Kuroshiro/kuromoji scripts to avoid blocking on GitHub Pages -->
 <script src="https://unpkg.com/wanakana/umd/wanakana.min.js"></script>
 
@@ -299,16 +327,12 @@
     let skipPlayOnDisplay = false;
     let isRandomMode = false;
     let audioMapping = [];
-    let recognition;
-    let isSpeechRecognitionActive = false;
     let sessionVocabList = [];
-    let sessionStartIndex = 0;
     let isAutoCheckEnabled = true;
     let typingTimer;
     const doneTypingInterval = 1500;
 
-    // Kuroshiro instance for converting kanji to hiragana
-    let kuroshiro = null;
+    // Kuroshiro removed; using wanakana fallback
 
     let lessons = [];
     let hiddenElements = { term: false, ipa: false, romaji: false, vietnamese: false };
@@ -591,6 +615,14 @@
         }
     }
 
+    function handleKeyDownV4(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            clearTimeout(typingTimer);
+            checkAnswerV4();
+        }
+    }
+
     
 
     function showNotification(message, isCorrect) {
@@ -637,7 +669,6 @@
                     try { audio.play(); } catch (e) {}
                 },
                 onend: function() {
-                    try { console.log('Phát âm hoàn tất'); } catch (e) {}
                     try { audio.unload(); } catch (e) {}
                     audio = null;
                     lastAudioSrc = '';
@@ -654,7 +685,7 @@
                 }
             });
         } else {
-            console.log("Không tìm thấy file âm thanh cho:", text);
+            // no prerecorded audio found; fallback to speechSynthesis
             // Fallback: try browser speechSynthesis
             try {
                 if ('speechSynthesis' in window) {
@@ -684,12 +715,10 @@
         try {
             // If wanakana is available and the input appears to be romaji, convert to hiragana
             if (typeof wanakana !== 'undefined') {
-                // simple heuristic: if text contains ASCII letters, treat as romaji
-                if (/^[A-Za-z\s-]+$/.test(text.toString())) {
-                    try {
-                        return wanakana.toHiragana(text.toString());
-                    } catch (e) {}
-                }
+                try {
+                    // Convert romaji or katakana to hiragana; leave kanji/hiragana untouched
+                    return wanakana.toHiragana(text.toString());
+                } catch (e) {}
             }
         } catch (e) {
             console.error('toHiragana fallback error', e);
@@ -752,6 +781,19 @@
             .trim();
     }
 
+    function removeDiacritics(text) {
+        if (!text) return '';
+        try {
+            return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        } catch (e) {
+            return text;
+        }
+    }
+
+    function normalizeVietnamese(text) {
+        return normalizeText(removeDiacritics(text || '').toString());
+    }
+
     async function checkAnswer() {
         const answerInput = document.getElementById('answerInput');
         const rawUser = answerInput.value.toString().trim();
@@ -785,7 +827,7 @@
         const normExpectedRomaji = normalizeText(expectedRomaji.toLowerCase());
 
         const hiraganaMatch = (userAnswer === normalizedExpectedText);
-        const romajiMatch = (normUserRomaji && normExpectedRomaji) && (normUserRomaji === normExpectedRomaji || normUserRomaji.includes(normExpectedRomaji) || normExpectedRomaji.includes(normUserRomaji));
+        const romajiMatch = (normUserRomaji && normExpectedRomaji) && (normUserRomaji === normExpectedRomaji);
 
         if (hiraganaMatch || romajiMatch) {
             showNotification("Đúng!", true);
@@ -818,13 +860,45 @@
         const word = vocabList[currentIndex];
         const expectedText = (word && word[0]) ? word[0].toString().trim() : '';
 
-        const userConv = await toHiragana(rawUser);
-        const expConv = await toHiragana(expectedText);
+        function normForCompare(s) {
+            if (!s) return '';
+            try { s = s.normalize('NFC'); } catch (e) {}
+            try { s = s.normalize('NFKC'); } catch (e) {}
+            s = s.replace(/[\u200B-\u200F\uFEFF]/g, '');
+            s = s.replace(/[\u3000\u3001\u3002\uFF0C\uFF0E\uFF1F\uFF01\u300C\u300D\u300E\u300F\u3010\u3011\u3008\u3009\u300A\u300B\u30FB\u30FC]/g, '');
+            s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"'?<>\[\]]/g, '');
+            s = s.replace(/\s+/g, ' ').trim();
+            return s;
+        }
 
-        const userAnswer = normalizeText(userConv);
-        const normalizedExpectedText = normalizeText(expConv);
+        // Derive expected hiragana: prefer explicit kana in column B (word[1]);
+        // fallback to romaji column (word[2]) converted to hiragana, else try converting expectedText.
+        let expectedHira = expectedText;
+        try {
+            if (word && word[1] && word[1].toString().trim() !== '') {
+                expectedHira = word[1].toString();
+            } else if (typeof wanakana !== 'undefined' && word && word[2] && word[2].toString().trim() !== '') {
+                expectedHira = wanakana.toHiragana(word[2].toString());
+            } else if (typeof wanakana !== 'undefined') {
+                expectedHira = wanakana.toHiragana(expectedText.toString());
+            }
+        } catch (e) {}
 
-        const hiraganaMatch = (userAnswer === normalizedExpectedText);
+        const userConv = await toHiragana(rawUser || '');
+        const userNormalized = normalizeText(normForCompare(userConv.toString()));
+        const expectedNormalized = normalizeText(normForCompare(expectedHira.toString()));
+
+        let hiraganaMatch = (userNormalized === expectedNormalized);
+
+        if (!hiraganaMatch && typeof wanakana !== 'undefined') {
+            try {
+                const userRom = normalizeText(wanakana.toRomaji(userConv || rawUser || ''));
+                const expRom = normalizeText(wanakana.toRomaji(expectedHira || expectedText || ''));
+                if (userRom && expRom && (userRom === expRom || userRom.includes(expRom) || expRom.includes(userRom))) {
+                    hiraganaMatch = true;
+                }
+            } catch (e) {}
+        }
 
         if (hiraganaMatch) {
             showNotification("Đúng!", true);
@@ -838,6 +912,7 @@
                 }
             });
         } else {
+                // debug removed in production build
             showNotification("Sai!", false);
             playPronunciation(word[0] || '');
         }
@@ -847,32 +922,91 @@
         }
     }
 
+        // V4: Vietnamese check (compares against column D / word[3])
+        async function checkAnswerV4() {
+            const answerInput = document.getElementById('answerInputV4');
+            const rawUser = (answerInput && answerInput.value) ? answerInput.value.toString().trim() : '';
+            const word = vocabList[currentIndex];
+            const expectedText = (word && word[3]) ? word[3].toString().trim() : '';
+
+            const normUser = normalizeVietnamese(rawUser.toLowerCase());
+            const normExpected = normalizeVietnamese(expectedText.toLowerCase());
+
+            const match = (normUser === normExpected);
+
+            if (match) {
+                showNotification("Đúng!", true);
+                playPronunciation(word && word[0] ? word[0] : '', function() {
+                    if (isFront) {
+                        skipPlayOnDisplay = true;
+                        flipCard();
+                        setTimeout(() => { nextWord(); }, 900);
+                    } else {
+                        nextWord();
+                    }
+                });
+            } else {
+                showNotification("Sai!", false);
+                playPronunciation(word && word[0] ? word[0] : '');
+            }
+
+            if (answerInput) {
+                answerInput.value = '';
+                answerInput.classList.remove('typing', 'checked');
+            }
+        }
+
     // V3: Romaji check (behaves like V1/V2 but compares romaji text)
     async function checkAnswerV3() {
         const answerInput = document.getElementById('answerInputV3');
         const rawUser = (answerInput && answerInput.value) ? answerInput.value.toString().trim() : '';
         const word = vocabList[currentIndex];
-        // Prefer romaji column (word[2]) if available, otherwise derive from column A
-        const expectedRomajiRaw = (word && word[2]) ? word[2].toString().trim() : (word && word[0]) ? word[0].toString().trim() : '';
 
+        // Helper to normalize romaji strings for comparison
+        function normRomaji(s) {
+            if (!s) return '';
+            try { s = s.normalize('NFC'); } catch (e) {}
+            try { s = s.normalize('NFKC'); } catch (e) {}
+            s = s.replace(/[\u200B-\u200F\uFEFF]/g, '');
+            s = s.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()"'?<>\[\]]/g, '');
+            s = s.replace(/\s+/g, ' ').trim();
+            return s.toLowerCase();
+        }
+
+        // Determine expected romaji: prefer explicit romaji column (word[2]),
+        // otherwise derive from hiragana/kana (word[1]) or from column A.
+        let expectedRomaji = '';
+        try {
+            if (word && word[2] && word[2].toString().trim() !== '') {
+                expectedRomaji = word[2].toString();
+            } else if (typeof wanakana !== 'undefined' && word && word[1] && word[1].toString().trim() !== '') {
+                expectedRomaji = wanakana.toRomaji(word[1].toString());
+            } else if (typeof wanakana !== 'undefined' && word && word[0]) {
+                expectedRomaji = wanakana.toRomaji(await toHiragana(word[0] || ''));
+            } else if (word && word[0]) {
+                expectedRomaji = word[0].toString();
+            }
+        } catch (e) {
+            expectedRomaji = (word && word[2]) ? word[2] : '';
+        }
+
+        // Convert user input to romaji if they typed kana; otherwise use as-is
         let userRomaji = rawUser;
-        let expectedRomaji = expectedRomajiRaw;
         try {
             if (typeof wanakana !== 'undefined') {
-                // If user typed kana accidentally, convert to romaji; otherwise toRomaji will pass romaji through
-                userRomaji = wanakana.toRomaji(await toHiragana(rawUser) || rawUser);
-                if (!expectedRomaji && word && word[0]) {
-                    expectedRomaji = wanakana.toRomaji(await toHiragana(word[0] || '') || '');
-                }
+                // Convert any kana/kanji to hiragana then to romaji
+                const maybeKana = await toHiragana(rawUser || '');
+                userRomaji = wanakana.toRomaji(maybeKana || rawUser);
             }
         } catch (e) {
             console.error('Romaji conversion failed for V3', e);
         }
 
-        const normUser = normalizeText((userRomaji || '').toLowerCase());
-        const normExpected = normalizeText((expectedRomaji || '').toLowerCase());
+        const normUser = normRomaji(userRomaji || '');
+        const normExpected = normRomaji(expectedRomaji || '');
 
-        const romajiMatch = (normUser === normExpected) || (normUser.includes(normExpected) && normExpected.length > 0) || (normExpected.includes(normUser) && normUser.length > 0);
+        // Require stricter match: normalized romaji must be equal
+        const romajiMatch = (normUser === normExpected);
 
         if (romajiMatch) {
             showNotification("Đúng!", true);
@@ -886,6 +1020,7 @@
                 }
             });
         } else {
+            // debug removed in production build
             showNotification("Sai!", false);
             playPronunciation(word && word[0] ? word[0] : '');
         }
@@ -929,6 +1064,16 @@
             input.classList.add('checked');
             input.classList.remove('typing');
             checkAnswerV3();
+        }
+    }
+
+    function handleTypingDoneV4() {
+        if (!isAutoCheckEnabled) return;
+        const input = document.getElementById('answerInputV4');
+        if (input && input.value.trim() !== '') {
+            input.classList.add('checked');
+            input.classList.remove('typing');
+            checkAnswerV4();
         }
     }
 
@@ -982,6 +1127,21 @@
         }, doneTypingInterval);
     });
 
+    document.getElementById('answerInputV4').addEventListener('input', function() {
+        if (!isAutoCheckEnabled) {
+            this.classList.remove('typing');
+            clearTimeout(typingTimer);
+            return;
+        }
+        this.classList.add('typing');
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+            if (isAutoCheckEnabled) {
+                handleTypingDoneV4();
+            }
+        }, doneTypingInterval);
+    });
+
     document.getElementById('answerInput').addEventListener('keydown', function() {
         clearTimeout(typingTimer);
     });
@@ -989,6 +1149,9 @@
         clearTimeout(typingTimer);
     });
     document.getElementById('answerInputV3').addEventListener('keydown', function() {
+        clearTimeout(typingTimer);
+    });
+    document.getElementById('answerInputV4').addEventListener('keydown', function() {
         clearTimeout(typingTimer);
     });
     
@@ -1003,7 +1166,6 @@
             const payload = { currentIndex: currentIndex, isFront: isFront, vocabLength: vocabList.length, ts: Date.now() };
             localStorage.setItem(key, JSON.stringify(payload));
             showNotification('Đã lưu bookmark', true);
-            console.log('Saved bookmark', key, payload);
         } catch (e) {
             showNotification('Lưu bookmark thất bại', false);
             console.error('saveBookmark error', e);
@@ -1027,7 +1189,6 @@
             }
             displayWord();
             showNotification('Đã tải bookmark', true);
-            console.log('Loaded bookmark', key, obj);
         } catch (e) {
             showNotification('Tải bookmark lỗi', false);
             console.error('loadBookmark error', e);
