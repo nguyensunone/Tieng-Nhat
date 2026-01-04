@@ -1,0 +1,353 @@
+[
+  {
+    "id": "a_0",
+    "text": "天気",
+    "file": "audio_Bài 4/gtts_a_0.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_1",
+    "text": "晴れ",
+    "file": "audio_Bài 4/gtts_a_1.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_2",
+    "text": "晴れる",
+    "file": "audio_Bài 4/gtts_a_2.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_3",
+    "text": "いい天気",
+    "file": "audio_Bài 4/gtts_a_3.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_4",
+    "text": "くもり",
+    "file": "audio_Bài 4/gtts_a_4.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_5",
+    "text": "くもる",
+    "file": "audio_Bài 4/gtts_a_5.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_6",
+    "text": "雨",
+    "file": "audio_Bài 4/gtts_a_6.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_7",
+    "text": "降る",
+    "file": "audio_Bài 4/gtts_a_7.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_8",
+    "text": "風",
+    "file": "audio_Bài 4/gtts_a_8.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_9",
+    "text": "吹く",
+    "file": "audio_Bài 4/gtts_a_9.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_10",
+    "text": "雷",
+    "file": "audio_Bài 4/gtts_a_10.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_11",
+    "text": "鳴る",
+    "file": "audio_Bài 4/gtts_a_11.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_12",
+    "text": "今",
+    "file": "audio_Bài 4/gtts_a_12.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_13",
+    "text": "昨日",
+    "file": "audio_Bài 4/gtts_a_13.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_14",
+    "text": "だいぶ",
+    "file": "audio_Bài 4/gtts_a_14.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_15",
+    "text": "嫌になる",
+    "file": "audio_Bài 4/gtts_a_15.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_16",
+    "text": "ゆうべ",
+    "file": "audio_Bài 4/gtts_a_16.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_17",
+    "text": "すごい",
+    "file": "audio_Bài 4/gtts_a_17.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_18",
+    "text": "本当ですね",
+    "file": "audio_Bài 4/gtts_a_18.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_19",
+    "text": "夜中",
+    "file": "audio_Bài 4/gtts_a_19.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_20",
+    "text": "明日",
+    "file": "audio_Bài 4/gtts_a_20.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_21",
+    "text": "一日",
+    "file": "audio_Bài 4/gtts_a_21.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_22",
+    "text": "やむ",
+    "file": "audio_Bài 4/gtts_a_22.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_23",
+    "text": "ただ",
+    "file": "audio_Bài 4/gtts_a_23.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_24",
+    "text": "強い",
+    "file": "audio_Bài 4/gtts_a_24.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_25",
+    "text": "服装",
+    "file": "audio_Bài 4/gtts_a_25.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_26",
+    "text": "お出かけください",
+    "file": "audio_Bài 4/gtts_a_26.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_27",
+    "text": "台風",
+    "file": "audio_Bài 4/gtts_a_27.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_28",
+    "text": "外",
+    "file": "audio_Bài 4/gtts_a_28.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_29",
+    "text": "死ぬ",
+    "file": "audio_Bài 4/gtts_a_29.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_30",
+    "text": "気温",
+    "file": "audio_Bài 4/gtts_a_30.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_31",
+    "text": "アイス",
+    "file": "audio_Bài 4/gtts_a_31.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_32",
+    "text": "町",
+    "file": "audio_Bài 4/gtts_a_32.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_33",
+    "text": "触る",
+    "file": "audio_Bài 4/gtts_a_33.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_34",
+    "text": "冷たい",
+    "file": "audio_Bài 4/gtts_a_34.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_35",
+    "text": "まっしろ",
+    "file": "audio_Bài 4/gtts_a_35.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_36",
+    "text": "とっても",
+    "file": "audio_Bài 4/gtts_a_36.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_37",
+    "text": "まだ",
+    "file": "audio_Bài 4/gtts_a_37.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_38",
+    "text": "遅れる",
+    "file": "audio_Bài 4/gtts_a_38.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  }
+]

@@ -1,0 +1,569 @@
+[
+  {
+    "id": "a_0",
+    "text": "趣味",
+    "file": "audio_Bài 2/gtts_a_0.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_1",
+    "text": "音楽",
+    "file": "audio_Bài 2/gtts_a_1.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_2",
+    "text": "聞く",
+    "file": "audio_Bài 2/gtts_a_2.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_3",
+    "text": "本",
+    "file": "audio_Bài 2/gtts_a_3.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_4",
+    "text": "読む",
+    "file": "audio_Bài 2/gtts_a_4.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_5",
+    "text": "もの",
+    "file": "audio_Bài 2/gtts_a_5.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_6",
+    "text": "写真",
+    "file": "audio_Bài 2/gtts_a_6.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_7",
+    "text": "撮る",
+    "file": "audio_Bài 2/gtts_a_7.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_8",
+    "text": "ピアノ",
+    "file": "audio_Bài 2/gtts_a_8.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_9",
+    "text": "ギター",
+    "file": "audio_Bài 2/gtts_a_9.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_10",
+    "text": "弾く",
+    "file": "audio_Bài 2/gtts_a_10.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_11",
+    "text": "おしゃべり",
+    "file": "audio_Bài 2/gtts_a_11.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_12",
+    "text": "料理",
+    "file": "audio_Bài 2/gtts_a_12.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_13",
+    "text": "旅行",
+    "file": "audio_Bài 2/gtts_a_13.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_14",
+    "text": "テニス",
+    "file": "audio_Bài 2/gtts_a_14.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_15",
+    "text": "いろいろ",
+    "file": "audio_Bài 2/gtts_a_15.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_16",
+    "text": "こと",
+    "file": "audio_Bài 2/gtts_a_16.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_17",
+    "text": "人",
+    "file": "audio_Bài 2/gtts_a_17.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_18",
+    "text": "話す",
+    "file": "audio_Bài 2/gtts_a_18.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_19",
+    "text": "特にない",
+    "file": "audio_Bài 2/gtts_a_19.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_20",
+    "text": "休みの日",
+    "file": "audio_Bài 2/gtts_a_20.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_21",
+    "text": "野球",
+    "file": "audio_Bài 2/gtts_a_21.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_22",
+    "text": "バドミントン",
+    "file": "audio_Bài 2/gtts_a_22.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_23",
+    "text": "アニメ",
+    "file": "audio_Bài 2/gtts_a_23.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_24",
+    "text": "市",
+    "file": "audio_Bài 2/gtts_a_24.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_25",
+    "text": "体育館",
+    "file": "audio_Bài 2/gtts_a_25.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_26",
+    "text": "毎週",
+    "file": "audio_Bài 2/gtts_a_26.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_27",
+    "text": "夕方",
+    "file": "audio_Bài 2/gtts_a_27.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_28",
+    "text": "そのあと",
+    "file": "audio_Bài 2/gtts_a_28.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_29",
+    "text": "本当に",
+    "file": "audio_Bài 2/gtts_a_29.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_30",
+    "text": "ぼく",
+    "file": "audio_Bài 2/gtts_a_30.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_31",
+    "text": "出かける",
+    "file": "audio_Bài 2/gtts_a_31.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_32",
+    "text": "特に",
+    "file": "audio_Bài 2/gtts_a_32.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_33",
+    "text": "キャッチボール",
+    "file": "audio_Bài 2/gtts_a_33.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_34",
+    "text": "お子さん",
+    "file": "audio_Bài 2/gtts_a_34.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_35",
+    "text": "娘",
+    "file": "audio_Bài 2/gtts_a_35.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_36",
+    "text": "三人家族",
+    "file": "audio_Bài 2/gtts_a_36.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_37",
+    "text": "犬",
+    "file": "audio_Bài 2/gtts_a_37.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_38",
+    "text": "キャンプ",
+    "file": "audio_Bài 2/gtts_a_38.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_39",
+    "text": "つり",
+    "file": "audio_Bài 2/gtts_a_39.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_40",
+    "text": "海",
+    "file": "audio_Bài 2/gtts_a_40.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_41",
+    "text": "山",
+    "file": "audio_Bài 2/gtts_a_41.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_42",
+    "text": "ことば",
+    "file": "audio_Bài 2/gtts_a_42.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_43",
+    "text": "アウトドア",
+    "file": "audio_Bài 2/gtts_a_43.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_44",
+    "text": "サイクリング",
+    "file": "audio_Bài 2/gtts_a_44.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_45",
+    "text": "教える",
+    "file": "audio_Bài 2/gtts_a_45.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_46",
+    "text": "習う",
+    "file": "audio_Bài 2/gtts_a_46.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_47",
+    "text": "英語",
+    "file": "audio_Bài 2/gtts_a_47.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_48",
+    "text": "できる",
+    "file": "audio_Bài 2/gtts_a_48.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_49",
+    "text": "いけばな",
+    "file": "audio_Bài 2/gtts_a_49.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_50",
+    "text": "フィリピノ語",
+    "file": "audio_Bài 2/gtts_a_50.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_51",
+    "text": "スペイン語",
+    "file": "audio_Bài 2/gtts_a_51.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_52",
+    "text": "何人",
+    "file": "audio_Bài 2/gtts_a_52.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_53",
+    "text": "一人",
+    "file": "audio_Bài 2/gtts_a_53.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_54",
+    "text": "二人",
+    "file": "audio_Bài 2/gtts_a_54.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_55",
+    "text": "三人",
+    "file": "audio_Bài 2/gtts_a_55.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_56",
+    "text": "四人",
+    "file": "audio_Bài 2/gtts_a_56.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_57",
+    "text": "五人",
+    "file": "audio_Bài 2/gtts_a_57.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_58",
+    "text": "六人",
+    "file": "audio_Bài 2/gtts_a_58.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_59",
+    "text": "七人",
+    "file": "audio_Bài 2/gtts_a_59.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_60",
+    "text": "八人",
+    "file": "audio_Bài 2/gtts_a_60.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_61",
+    "text": "九人",
+    "file": "audio_Bài 2/gtts_a_61.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  },
+  {
+    "id": "a_62",
+    "text": "十人",
+    "file": "audio_Bài 2/gtts_a_62.mp3",
+    "lang": "ja",
+    "type": "a",
+    "engine": "gTTS",
+    "voice": "gTTS-ja"
+  }
+]

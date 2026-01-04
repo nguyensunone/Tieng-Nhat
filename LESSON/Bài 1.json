@@ -1,0 +1,398 @@
+[
+  [
+    "先輩",
+    "せんぱい",
+    "senpai",
+    "tiền bối"
+  ],
+  [
+    "後輩",
+    "こうはい",
+    "kouhai",
+    "hậu bối"
+  ],
+  [
+    "知り合い",
+    "しりあい",
+    "shiriai",
+    "người quen"
+  ],
+  [
+    "久しぶり",
+    "ひさしぶり",
+    "hisashiburi",
+    "lâu lắm mới gặp"
+  ],
+  [
+    "元気",
+    "げんき",
+    "genki",
+    "khỏe mạnh"
+  ],
+  [
+    "おかげさまで",
+    "おかげさまで",
+    "okagesama de",
+    "Cảm ơn"
+  ],
+  [
+    "半年",
+    "はんとし",
+    "hantoshi",
+    "nửa năm"
+  ],
+  [
+    "一年",
+    "いちねん",
+    "ichinen",
+    "một năm"
+  ],
+  [
+    "先月",
+    "せんげつ",
+    "sengetsu",
+    "tháng trước"
+  ],
+  [
+    "去年",
+    "きょねん",
+    "kyonen",
+    "năm ngoái"
+  ],
+  [
+    "生活",
+    "せいかつ",
+    "seikatsu",
+    "cuộc sống"
+  ],
+  [
+    "もう",
+    "もう",
+    "mou",
+    "đã, rồi"
+  ],
+  [
+    "慣れる",
+    "なれる",
+    "nareru",
+    "quen với"
+  ],
+  [
+    "ちょうど",
+    "ちょうど",
+    "choudo",
+    "vừa đúng,chính xác"
+  ],
+  [
+    "なんとか",
+    "なんとか",
+    "nantoka",
+    "bằng cách nào đó,một chút"
+  ],
+  [
+    "まだ",
+    "まだ",
+    "mada",
+    "chưa"
+  ],
+  [
+    "一年になる",
+    "いちねんになる",
+    "ichinennninaru",
+    "đã 1 năm"
+  ],
+  [
+    "一か月",
+    "いっかげつ",
+    "ikkagetsu",
+    "một tháng"
+  ],
+  [
+    "二か月",
+    "にかげつ",
+    "nikagetsu",
+    "hai tháng"
+  ],
+  [
+    "三か月",
+    "さんかげつ",
+    "sankagetsu",
+    "ba tháng"
+  ],
+  [
+    "四か月",
+    "よんかげつ",
+    "yonkagetsu",
+    "bốn tháng"
+  ],
+  [
+    "五か月",
+    "ごかげつ",
+    "gokagetsu",
+    "năm tháng"
+  ],
+  [
+    "六か月",
+    "ろっかげつ",
+    "rokkagetsu",
+    "sáu tháng"
+  ],
+  [
+    "七か月",
+    "ななかげつ",
+    "nanakagetsu",
+    "bảy tháng"
+  ],
+  [
+    "八か月",
+    "はちかげつ",
+    "hachikagetsu",
+    "tám tháng"
+  ],
+  [
+    "九か月",
+    "きゅうかげつ",
+    "kyuukagetsu",
+    "chín tháng"
+  ],
+  [
+    "十か月",
+    "じゅっかげつ",
+    "jukkagetsu",
+    "mười tháng"
+  ],
+  [
+    "十一か月",
+    "じゅういっかげつ",
+    "juuikkagetsu",
+    "mười một tháng"
+  ],
+  [
+    "十二か月",
+    "じゅうにかげつ",
+    "juunikagetsu",
+    "mười hai tháng"
+  ],
+  [
+    "二年",
+    "にねん",
+    "ninen",
+    "hai năm"
+  ],
+  [
+    "三年",
+    "さんねん",
+    "sannen",
+    "ba năm"
+  ],
+  [
+    "四年",
+    "よねん",
+    "yonen",
+    "bốn năm"
+  ],
+  [
+    "五年",
+    "ごねん",
+    "gonen",
+    "năm năm"
+  ],
+  [
+    "六年",
+    "ろくねん",
+    "rokunen",
+    "sáu năm"
+  ],
+  [
+    "七年",
+    "ななねん,しちねん",
+    "nananen,shichinen",
+    "bảy năm"
+  ],
+  [
+    "八年",
+    "はちねん",
+    "hachinen",
+    "tám năm"
+  ],
+  [
+    "九年",
+    "きゅうねん",
+    "kyuunen",
+    "chín năm"
+  ],
+  [
+    "十年",
+    "じゅうねん",
+    "juunen",
+    "mười năm"
+  ],
+  [
+    "先週",
+    "せんしゅう",
+    "senshuu",
+    "tuần trước"
+  ],
+  [
+    "仕事",
+    "しごと",
+    "shigoto",
+    "công việc"
+  ],
+  [
+    "レストラン",
+    "レストラン",
+    "resutoran",
+    "nhà hàng"
+  ],
+  [
+    "働く",
+    "はたらく",
+    "hataraku",
+    "làm việc"
+  ],
+  [
+    "ホテル",
+    "ホテル",
+    "hoteru",
+    "khách sạn"
+  ],
+  [
+    "工場",
+    "こうじょう",
+    "koujou",
+    "nhà máy"
+  ],
+  [
+    "介護",
+    "かいご",
+    "kaigo",
+    "hộ lý"
+  ],
+  [
+    "仕事をする",
+    "しごとをする",
+    "shigoto o suru",
+    "làm việc"
+  ],
+  [
+    "建設",
+    "けんせつ",
+    "kensetsu",
+    "xây dựng"
+  ],
+  [
+    "野菜",
+    "やさい",
+    "yasai",
+    "rau củ"
+  ],
+  [
+    "作る",
+    "つくる",
+    "tsukuru",
+    "làm, trồng"
+  ],
+  [
+    "日本語学校",
+    "にほんごがっこう",
+    "nihongo gakkou",
+    "trường tiếng Nhật"
+  ],
+  [
+    "勉強する",
+    "べんきょうする",
+    "benkyou suru",
+    "học"
+  ],
+  [
+    "専門学校",
+    "せんもんがっこう",
+    "senmon gakkou",
+    "trường dạy nghề"
+  ],
+  [
+    "通う",
+    "かよう",
+    "kayou",
+    "đi"
+  ],
+  [
+    "主婦",
+    "しゅふ",
+    "shufu",
+    "bà nội trợ"
+  ],
+  [
+    "主夫",
+    "しゅふ",
+    "shufu",
+    "chồng nội trợ"
+  ],
+  [
+    "忙しい",
+    "いそがしい",
+    "isogashii",
+    "bận rộn"
+  ],
+  [
+    "大変",
+    "たいへん",
+    "taihen",
+    "khó khăn, vất vả"
+  ],
+  [
+    "疲れる",
+    "つかれる",
+    "tsukareru",
+    "mệt mỏi"
+  ],
+  [
+    "まあまあ",
+    "まあまあ",
+    "maamaa",
+    "tạm được"
+  ],
+  [
+    "楽しい",
+    "たのしい",
+    "tanoshii",
+    "vui vẻ"
+  ],
+  [
+    "みんな",
+    "みんな",
+    "minna",
+    "mọi người"
+  ],
+  [
+    "親切",
+    "しんせつ",
+    "shinsetsu",
+    "tốt bụng, tử tế"
+  ],
+  [
+    "勉強になる",
+    "べんきょうになる",
+    "benkyou ni naru",
+    "học hỏi được nhiều"
+  ],
+  [
+    "毎日",
+    "まいにち",
+    "mainichi",
+    "hằng ngày"
+  ],
+  [
+    "学生",
+    "がくせい",
+    "gakusei",
+    "sinh viên"
+  ],
+  [
+    "プログラミング",
+    "プログラミング",
+    "puroguramingu",
+    "lập trình"
+  ]
+]

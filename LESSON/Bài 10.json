@@ -1,0 +1,386 @@
+[
+  [
+    "曜日",
+    "ようび",
+    "youbi",
+    "thứ"
+  ],
+  [
+    "時間",
+    "じかん",
+    "jikan",
+    "thời gian"
+  ],
+  [
+    "費用",
+    "ひよう",
+    "hiyou",
+    "chi phí"
+  ],
+  [
+    "毎月",
+    "まいつき",
+    "maitsuki",
+    "hằng tháng"
+  ],
+  [
+    "第三木曜日",
+    "だいさんもくようび",
+    "daisanmokuyoubi",
+    "thứ năm tuần thứ ba của tháng"
+  ],
+  [
+    "公民館",
+    "こうみんかん",
+    "kouminkan",
+    "nhà văn hóa công cộng"
+  ],
+  [
+    "問い合わせ",
+    "といあわせ",
+    "toiawase",
+    "thắc mắc"
+  ],
+  [
+    "十月スタート",
+    "じゅうがつスタート",
+    "juugatsusutaato",
+    "bắt đầu vào tháng 10"
+  ],
+  [
+    "旬",
+    "しゅん",
+    "shun",
+    "thời điểm ngon nhất"
+  ],
+  [
+    "味わう",
+    "あじわう",
+    "ajiwau",
+    "thưởng thức"
+  ],
+  [
+    "全四回",
+    "ぜんよんかい",
+    "zenyonkai",
+    "tổng cộng 4 lần"
+  ],
+  [
+    "調理室",
+    "ちょうりしつ",
+    "chourishitsu",
+    "lớp học nấu ăn"
+  ],
+  [
+    "各",
+    "かく",
+    "kaku",
+    "mỗi"
+  ],
+  [
+    "先着",
+    "せんちゃく",
+    "senchaku",
+    "đến trước"
+  ],
+  [
+    "書道",
+    "しょどう",
+    "shodou",
+    "thư pháp"
+  ],
+  [
+    "日にち",
+    "ひにち",
+    "hinichi",
+    "ngày giờ"
+  ],
+  [
+    "テキスト代",
+    "テキストだい",
+    "tekisutodai",
+    "chi phí giáo trình"
+  ],
+  [
+    "外国人向け",
+    "がいこくじんむけ",
+    "gaikokujinmuke",
+    "dành cho người nước ngoài"
+  ],
+  [
+    "体験教室",
+    "たいけんきょうしつ",
+    "taiken kyoushitsu",
+    "lớp học trải nghiệm"
+  ],
+  [
+    "身につける",
+    "みにつける",
+    "minitsukeru",
+    "học, tiếp thu"
+  ],
+  [
+    "月",
+    "つき",
+    "tsuki",
+    "tháng"
+  ],
+  [
+    "テキスト",
+    "テキスト",
+    "tekisuto",
+    "giáo trình"
+  ],
+  [
+    "道具",
+    "どうぐ",
+    "dougu",
+    "đồ dùng"
+  ],
+  [
+    "各自",
+    "かくじ",
+    "kakuji",
+    "mỗi người"
+  ],
+  [
+    "見学",
+    "けんがく",
+    "kengaku",
+    "tham quan học tập"
+  ],
+  [
+    "申し込み",
+    "もうしこみ",
+    "moushikomi",
+    "đăng ký"
+  ],
+  [
+    "お持ちください",
+    "おもちください",
+    "omochi kudasai",
+    "hãy mang "
+  ],
+  [
+    "参加されています",
+    "さんかされています",
+    "sanka sareteimasu",
+    "đang tham gia"
+  ],
+  [
+    "いらしてください",
+    "いらしてください",
+    "irashite kudasai",
+    "xin mời đến"
+  ],
+  [
+    "かかる",
+    "かかる",
+    "kakaru",
+    "tốn, mất phí"
+  ],
+  [
+    "合気道",
+    "あいきどう",
+    "aikidou",
+    "aikido"
+  ],
+  [
+    "一回完結",
+    "いっかいかんけつ",
+    "ikkakanketsu",
+    "hoàn thành 1 lần"
+  ],
+  [
+    "体育室",
+    "たいいくしつ",
+    "taiikushitsu",
+    "phòng tập thể dục"
+  ],
+  [
+    "動きやすい",
+    "うごきやすい",
+    "ugokiyasui",
+    "dễ cử động"
+  ],
+  [
+    "道着",
+    "どうぎ",
+    "dougi",
+    "võ phục"
+  ],
+  [
+    "かまいません",
+    "かまいません",
+    "kamaimasen",
+    "không vấn đề gì"
+  ],
+  [
+    "必要ありません",
+    "ひつようありません",
+    "hitsuyou arimasen",
+    "không cần thiết"
+  ],
+  [
+    "参加する",
+    "さんかする",
+    "sanka suru",
+    "tham gia"
+  ],
+  [
+    "クラス",
+    "クラス",
+    "kurasu",
+    "lớp"
+  ],
+  [
+    "必要",
+    "ひつよう",
+    "hitsuyou",
+    "cần thiết"
+  ],
+  [
+    "最初",
+    "さいしょ",
+    "saisho",
+    "đầu tiên"
+  ],
+  [
+    "あとは",
+    "あとは",
+    "ato wa",
+    "sau đó"
+  ],
+  [
+    "聞く",
+    "きく",
+    "kiku",
+    "hỏi"
+  ],
+  [
+    "払う",
+    "はらう",
+    "harau",
+    "trả tiền"
+  ],
+  [
+    "興味がある",
+    "きょうみがある",
+    "kyoumi ga aru",
+    "có hứng thú"
+  ],
+  [
+    "それとも",
+    "それとも",
+    "soretomo",
+    "hoặc là"
+  ],
+  [
+    "コース",
+    "コース",
+    "koosu",
+    "khóa học"
+  ],
+  [
+    "全部",
+    "ぜんぶ",
+    "zenbu",
+    "toàn bộ"
+  ],
+  [
+    "用意する",
+    "よういする",
+    "youi suru",
+    "chuẩn bị"
+  ],
+  [
+    "もっと",
+    "もっと",
+    "motto",
+    "hơn nữa"
+  ],
+  [
+    "週",
+    "しゅう",
+    "shuu",
+    "tuần"
+  ],
+  [
+    "何回",
+    "なんかい",
+    "nankai",
+    "bao nhiêu lần"
+  ],
+  [
+    "ただ",
+    "ただ",
+    "tada",
+    "miễn phí"
+  ],
+  [
+    "チラシ",
+    "チラシ",
+    "chirashi",
+    "tờ rơi"
+  ],
+  [
+    "持って来る",
+    "もってくる",
+    "mottekuru",
+    "mang đến"
+  ],
+  [
+    "きびしい",
+    "きびしい",
+    "kibishii",
+    "nghiêm khắc"
+  ],
+  [
+    "申し込み書",
+    "もうしこみしょ",
+    "moushikomisho",
+    "đơn đăng ký"
+  ],
+  [
+    "紹介する",
+    "しょうかいする",
+    "shoukai suru",
+    "giới thiệu"
+  ],
+  [
+    "母語",
+    "ぼご",
+    "bogo",
+    "tiếng mẹ đẻ"
+  ],
+  [
+    "どういう",
+    "どういう",
+    "douiu",
+    "gì"
+  ],
+  [
+    "意味",
+    "いみ",
+    "imi",
+    "ý nghĩa"
+  ],
+  [
+    "使う",
+    "つかう",
+    "tsukau",
+    "sử dụng"
+  ],
+  [
+    "前に",
+    "まえに",
+    "mae ni",
+    "trước đây"
+  ],
+  [
+    "どんなこと",
+    "どんなこと",
+    "donna koto",
+    "những điều gì"
+  ]
+]

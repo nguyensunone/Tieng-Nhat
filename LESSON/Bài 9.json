@@ -1,0 +1,368 @@
+[
+  [
+    "日本語学校",
+    "にほんごがっこう",
+    "nihongo gakkou",
+    "trường tiếng Nhật"
+  ],
+  [
+    "高校",
+    "こうこう",
+    "koukou",
+    "trường cấp 3"
+  ],
+  [
+    "どれぐらい",
+    "どれぐらい",
+    "doregurai",
+    "bao lâu"
+  ],
+  [
+    "上手",
+    "じょうず",
+    "jouzu",
+    "giỏi"
+  ],
+  [
+    "自分で",
+    "じぶんで",
+    "jibun de",
+    "tự mình"
+  ],
+  [
+    "まだまだです",
+    "まだまだです",
+    "madamada desu",
+    "tôi vẫn còn kém lắm"
+  ],
+  [
+    "そんなことないです",
+    "そんなことないです",
+    "sonna koto nai desu",
+    "không đâu"
+  ],
+  [
+    "大学",
+    "だいがく",
+    "daigaku",
+    "trường đại học"
+  ],
+  [
+    "ラジオ",
+    "ラジオ",
+    "rajio",
+    "radio"
+  ],
+  [
+    "ネット",
+    "ネット",
+    "netto",
+    "internet"
+  ],
+  [
+    "アプリ",
+    "アプリ",
+    "apuri",
+    "ứng dụng"
+  ],
+  [
+    "日本語",
+    "にほんご",
+    "nihongo",
+    "tiếng Nhật"
+  ],
+  [
+    "勉強",
+    "べんきょう",
+    "benkyou",
+    "học"
+  ],
+  [
+    "簡単",
+    "かんたん",
+    "kantan",
+    "đơn giản, dễ dàng"
+  ],
+  [
+    "難しい",
+    "むずかしい",
+    "muzukashii",
+    "khó"
+  ],
+  [
+    "似ている",
+    "にている",
+    "nite iru",
+    "giống nhau"
+  ],
+  [
+    "違う",
+    "ちがう",
+    "chigau",
+    "khác nhau"
+  ],
+  [
+    "得意",
+    "とくい",
+    "tokui",
+    "giỏi"
+  ],
+  [
+    "苦手",
+    "にがて",
+    "nigate",
+    "kém"
+  ],
+  [
+    "文法",
+    "ぶんぽう",
+    "bunpou",
+    "ngữ pháp"
+  ],
+  [
+    "発音",
+    "はつおん",
+    "hatsuon",
+    "phát âm"
+  ],
+  [
+    "文字",
+    "もじ",
+    "moji",
+    "chữ viết"
+  ],
+  [
+    "ひらがな",
+    "ひらがな",
+    "hiragana",
+    "hiragana"
+  ],
+  [
+    "カタカナ",
+    "カタカナ",
+    "katakana",
+    "katakana"
+  ],
+  [
+    "漢字",
+    "かんじ",
+    "kanji",
+    "kanji"
+  ],
+  [
+    "会話",
+    "かいわ",
+    "kaiwa",
+    "hội thoại"
+  ],
+  [
+    "モンゴル語",
+    "モンゴルご",
+    "mongoru go",
+    "tiếng Mông Cổ"
+  ],
+  [
+    "ベトナム語",
+    "ベトナムご",
+    "betonamu go",
+    "tiếng Việt"
+  ],
+  [
+    "覚える",
+    "おぼえる",
+    "oboeru",
+    "nhớ"
+  ],
+  [
+    "教える",
+    "おしえる",
+    "oshieru",
+    "dạy"
+  ],
+  [
+    "辞書",
+    "じしょ",
+    "jisho",
+    "từ điển"
+  ],
+  [
+    "貸す",
+    "かす",
+    "kasu",
+    "cho mượn"
+  ],
+  [
+    "見せる",
+    "みせる",
+    "miseru",
+    "cho xem"
+  ],
+  [
+    "チェックする",
+    "チェックする",
+    "chekku suru",
+    "kiểm tra"
+  ],
+  [
+    "説明する",
+    "せつめいする",
+    "setsumei suru",
+    "giải thích"
+  ],
+  [
+    "紙",
+    "かみ",
+    "kami",
+    "tờ giấy"
+  ],
+  [
+    "書く",
+    "かく",
+    "kaku",
+    "viết"
+  ],
+  [
+    "言う",
+    "いう",
+    "iu",
+    "nói"
+  ],
+  [
+    "ゆっくり",
+    "ゆっくり",
+    "yukkuri",
+    "chậm rãi"
+  ],
+  [
+    "メール",
+    "メール",
+    "meeru",
+    "email"
+  ],
+  [
+    "書類",
+    "しょるい",
+    "shorui",
+    "tài liệu, giấy tờ"
+  ],
+  [
+    "教科書",
+    "きょうかしょ",
+    "kyoukasho",
+    "sách giáo khoa"
+  ],
+  [
+    "自信がありません",
+    "じしんがありません",
+    "jishin ga arimasen",
+    "tôi không tự tin"
+  ],
+  [
+    "練習",
+    "れんしゅう",
+    "renshuu",
+    "luyện tập"
+  ],
+  [
+    "探す",
+    "さがす",
+    "sagasu",
+    "tìm"
+  ],
+  [
+    "何回も",
+    "なんかいも",
+    "nankaimo",
+    "nhiều lần"
+  ],
+  [
+    "教室",
+    "きょうしつ",
+    "kyoushitsu",
+    "lớp học"
+  ],
+  [
+    "無料",
+    "むりょう",
+    "muryou",
+    "miễn phí"
+  ],
+  [
+    "先生",
+    "せんせい",
+    "sensei",
+    "giáo viên"
+  ],
+  [
+    "知恵",
+    "ちえ",
+    "chie",
+    "trí tuệ"
+  ],
+  [
+    "拝借する",
+    "はいしゃくする",
+    "haishaku suru",
+    "mượn"
+  ],
+  [
+    "サイト",
+    "サイト",
+    "saito",
+    "trang web"
+  ],
+  [
+    "トップ",
+    "トップ",
+    "toppu",
+    "đầu trang"
+  ],
+  [
+    "カテゴリー",
+    "カテゴリー",
+    "kategorii",
+    "danh mục"
+  ],
+  [
+    "ランキング",
+    "ランキング",
+    "rankingu",
+    "xếp hạng"
+  ],
+  [
+    "検索",
+    "けんさく",
+    "kensaku",
+    "tìm kiếm"
+  ],
+  [
+    "質問",
+    "しつもん",
+    "shitsumon",
+    "câu hỏi"
+  ],
+  [
+    "相談",
+    "そうだん",
+    "soudan",
+    "trao đổi"
+  ],
+  [
+    "おしゃべりする",
+    "おしゃべりする",
+    "oshaberi suru",
+    "tán gẫu"
+  ],
+  [
+    "シャドーイングする",
+    "シャドーイングする",
+    "shadooingu suru",
+    "nói đuổi"
+  ],
+  [
+    "ボランティア",
+    "ボランティア",
+    "borantia",
+    "tình nguyện"
+  ]
+]
