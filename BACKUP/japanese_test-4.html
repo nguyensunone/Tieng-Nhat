@@ -70,35 +70,11 @@
         }
         #answerInput {
             width: 80%;
-            max-width: 800px;
-            height: 40px;
+            max-width: 600px;
             margin: 20px auto;
             display: block;
-            padding: 10px;
-            font-size: 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #1c2025;
-            color: #61dafb;
-            resize: vertical;
-            overflow-y: auto;
         }
-        #answerInputV2 {
-            width: 80%;
-            max-width: 800px;
-            height: 40px;
-            margin: 20px auto;
-            display: block;
-            padding: 10px;
-            font-size: 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: #1c2025;
-            color: #61dafb;
-            resize: vertical;
-            overflow-y: auto;
-        }
-        #answerInputV3 {
+        #answerInput, #writingCheckBack {
             width: 80%;
             max-width: 800px;
             height: 40px;
@@ -127,7 +103,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #checkAnswerButton {
+        #checkAnswerButton, #checkAnswerBackButton {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 20px;
@@ -139,37 +115,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        #checkAnswerButton:hover {
-            background-color: #21a1f1;
-        }
-        #checkAnswerV2Button {
-            display: inline-block;
-            margin: 10px 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            background-color: #61dafb;
-            color: #282c34;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #checkAnswerV2Button:hover {
-            background-color: #21a1f1;
-        }
-        #checkAnswerV3Button {
-            display: inline-block;
-            margin: 10px 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            background-color: #61dafb;
-            color: #282c34;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #checkAnswerV3Button:hover {
+        #checkAnswerButton:hover, #checkAnswerBackButton:hover {
             background-color: #21a1f1;
         }
         #notification {
@@ -244,14 +190,12 @@
 <div id="notification"></div>
 
 
-<textarea id="answerInput" placeholder="Kiểm tra kanji (V1)" onkeydown="handleKeyDown(event)"></textarea>
-<textarea id="answerInputV2" placeholder="Kiểm tra hiragana (V2)" onkeydown="handleKeyDownV2(event)"></textarea>
-<textarea id="answerInputV3" placeholder="Kiểm tra romaji (V3)" onkeydown="handleKeyDownV3(event)"></textarea>
+<textarea id="answerInput" placeholder="Kiểm tra tiếng Nhật" onkeydown="handleKeyDown(event)"></textarea>
+<textarea id="writingCheckBack" placeholder="Kiểm tra viết tiếng Việt (V2)" onkeydown="handleKeyDownBack(event)"></textarea>
 
 <div style="text-align: center;">
     <button id="checkAnswerButton" onclick="checkAnswer()">V1</button>
-    <button id="checkAnswerV2Button" onclick="checkAnswerV2()">V2</button>
-    <button id="checkAnswerV3Button" onclick="checkAnswerV3()">V3</button>
+    <button id="checkAnswerBackButton" onclick="checkAnswerBack()">V2</button>
 </div>
 
 <div style="text-align: center;">
@@ -575,19 +519,11 @@
         }
     }
 
-    function handleKeyDownV2(event) {
+    function handleKeyDownBack(event) {
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
             clearTimeout(typingTimer);
-            checkAnswerV2();
-        }
-    }
-
-    function handleKeyDownV3(event) {
-        if (event.key === 'Enter' && !event.shiftKey) {
-            event.preventDefault();
-            clearTimeout(typingTimer);
-            checkAnswerV3();
+            checkAnswerBack();
         }
     }
 
@@ -811,92 +747,30 @@
         answerInput.classList.remove('typing', 'checked');
     }
 
-    // V2: Hiragana-only check (behaves like V1 but requires hiragana match)
-    async function checkAnswerV2() {
-        const answerInput = document.getElementById('answerInputV2');
-        const rawUser = (answerInput && answerInput.value) ? answerInput.value.toString().trim() : '';
+    function checkAnswerBack() {
+        const input = document.getElementById('writingCheckBack');
+        const user = normalizeText(input.value.trim().toLowerCase());
+        input.value = '';
+        input.classList.remove('typing', 'checked');
+
         const word = vocabList[currentIndex];
-        const expectedText = (word && word[0]) ? word[0].toString().trim() : '';
+        const expected = normalizeText((word[3] || '').toString().trim().toLowerCase());
 
-        const userConv = await toHiragana(rawUser);
-        const expConv = await toHiragana(expectedText);
-
-        const userAnswer = normalizeText(userConv);
-        const normalizedExpectedText = normalizeText(expConv);
-
-        const hiraganaMatch = (userAnswer === normalizedExpectedText);
-
-        if (hiraganaMatch) {
+        if (user === expected) {
             showNotification("Đúng!", true);
-            playPronunciation(expectedText, function() {
-                if (isFront) {
-                    skipPlayOnDisplay = true;
-                    flipCard();
-                    setTimeout(() => { nextWord(); }, 900);
-                } else {
-                    nextWord();
-                }
-            });
+            document.getElementById('vocabLabel').innerHTML = `
+                <div class="card">
+                    <div class="example">${word[3] || ''}</div>
+                </div>`;
+            setTimeout(() => { nextWord(); }, 1000);
         } else {
             showNotification("Sai!", false);
-            playPronunciation(word[0] || '');
-        }
-        if (answerInput) {
-            answerInput.value = '';
-            answerInput.classList.remove('typing', 'checked');
-        }
-    }
-
-    // V3: Romaji check (behaves like V1/V2 but compares romaji text)
-    async function checkAnswerV3() {
-        const answerInput = document.getElementById('answerInputV3');
-        const rawUser = (answerInput && answerInput.value) ? answerInput.value.toString().trim() : '';
-        const word = vocabList[currentIndex];
-        // Prefer romaji column (word[2]) if available, otherwise derive from column A
-        const expectedRomajiRaw = (word && word[2]) ? word[2].toString().trim() : (word && word[0]) ? word[0].toString().trim() : '';
-
-        let userRomaji = rawUser;
-        let expectedRomaji = expectedRomajiRaw;
-        try {
-            if (typeof wanakana !== 'undefined') {
-                // If user typed kana accidentally, convert to romaji; otherwise toRomaji will pass romaji through
-                userRomaji = wanakana.toRomaji(await toHiragana(rawUser) || rawUser);
-                if (!expectedRomaji && word && word[0]) {
-                    expectedRomaji = wanakana.toRomaji(await toHiragana(word[0] || '') || '');
-                }
-            }
-        } catch (e) {
-            console.error('Romaji conversion failed for V3', e);
-        }
-
-        const normUser = normalizeText((userRomaji || '').toLowerCase());
-        const normExpected = normalizeText((expectedRomaji || '').toLowerCase());
-
-        const romajiMatch = (normUser === normExpected) || (normUser.includes(normExpected) && normExpected.length > 0) || (normExpected.includes(normUser) && normUser.length > 0);
-
-        if (romajiMatch) {
-            showNotification("Đúng!", true);
-            playPronunciation(word && word[0] ? word[0] : '', function() {
-                if (isFront) {
-                    skipPlayOnDisplay = true;
-                    flipCard();
-                    setTimeout(() => { nextWord(); }, 900);
-                } else {
-                    nextWord();
-                }
-            });
-        } else {
-            showNotification("Sai!", false);
-            playPronunciation(word && word[0] ? word[0] : '');
-        }
-
-        if (answerInput) {
-            answerInput.value = '';
-            answerInput.classList.remove('typing', 'checked');
+            document.getElementById('vocabLabel').innerHTML = `
+                <div class="card">
+                    <div class="example">${word[3] || ''}</div>
+                </div>`;
         }
     }
-
-
 
     
 
@@ -914,25 +788,13 @@
 
     function handleTypingDoneV2() {
         if (!isAutoCheckEnabled) return;
-        const input = document.getElementById('answerInputV2');
-        if (input && input.value.trim() !== '') {
+        const input = document.getElementById('writingCheckBack');
+        if (input.value.trim() !== '') {
             input.classList.add('checked');
             input.classList.remove('typing');
-            checkAnswerV2();
+            checkAnswerBack();
         }
     }
-
-    function handleTypingDoneV3() {
-        if (!isAutoCheckEnabled) return;
-        const input = document.getElementById('answerInputV3');
-        if (input && input.value.trim() !== '') {
-            input.classList.add('checked');
-            input.classList.remove('typing');
-            checkAnswerV3();
-        }
-    }
-
-
 
     
 
@@ -952,7 +814,7 @@
         }, doneTypingInterval);
     });
 
-    document.getElementById('answerInputV2').addEventListener('input', function() {
+    document.getElementById('writingCheckBack').addEventListener('input', function() {
         if (!isAutoCheckEnabled) {
             this.classList.remove('typing');
             clearTimeout(typingTimer);
@@ -967,28 +829,10 @@
         }, doneTypingInterval);
     });
 
-    document.getElementById('answerInputV3').addEventListener('input', function() {
-        if (!isAutoCheckEnabled) {
-            this.classList.remove('typing');
-            clearTimeout(typingTimer);
-            return;
-        }
-        this.classList.add('typing');
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(() => {
-            if (isAutoCheckEnabled) {
-                handleTypingDoneV3();
-            }
-        }, doneTypingInterval);
-    });
-
     document.getElementById('answerInput').addEventListener('keydown', function() {
         clearTimeout(typingTimer);
     });
-    document.getElementById('answerInputV2').addEventListener('keydown', function() {
-        clearTimeout(typingTimer);
-    });
-    document.getElementById('answerInputV3').addEventListener('keydown', function() {
+    document.getElementById('writingCheckBack').addEventListener('keydown', function() {
         clearTimeout(typingTimer);
     });
     
