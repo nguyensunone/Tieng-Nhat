@@ -1,0 +1,44 @@
+Tóm tắt thay đổi (japanese_test.html)
+
+- Mục tiêu: sửa lỗi treo trang khi mở trên GitHub Pages (không thể mở DevTools được).
+- Hành động: loại bỏ các script nặng Kuroshiro/kuromoji và tính năng nhận diện giọng nói (speech).
+- Hậu quả: tính năng chuyển Kanji -> Hiragana bằng Kuroshiro đã bị loại bỏ; thay bằng fallback đơn giản dùng `wanakana` khi input là romaji. Tính năng "Nói" đã bị xóa để giảm tải.
+
+Lý do: Kuroshiro/kuromoji script có thể gây chặn tải hoặc lỗi trên GitHub Pages; loại bỏ giúp trang hoạt động ổn định.
+
+Lệnh git (chạy trong thư mục repo):
+
+cd "C:\Users\ndmnh\OneDrive\Documents\GitHub\Tieng-Nhat"
+
+# xem trạng thái
+git status
+
+# thêm thay đổi
+git add japanese_test.html huongdan.txt
+
+# commit
+git commit -m "fix: remove Kuroshiro and speech UI for GitHub Pages stability"
+
+# push
+git push
+
+(Nếu remote branch không mặc định: `git push origin HEAD`)
+
+Kiểm tra sau deploy:
+- Chờ ~1–2 phút cho GitHub Pages redeploy.
+- Mở: https://nguyensunone.github.io/Tieng-Nhat/japanese_test.html
+- Nếu trang trắng hoặc lỗi: thử mở ở chế độ Incognito hoặc trình duyệt khác.
+
+Ghi chú debug (nếu DevTools không mở được):
+- Tôi có thể thêm một "error banner" hiển thị lỗi runtime hoặc gửi log tới một endpoint nếu bạn muốn thu thập thông tin từ người dùng không có DevTools.
+
+Khôi phục (rollback):
+- Nếu muốn khôi phục Kuroshiro, revert commit hoặc lấy lại file từ commit cũ, rồi push. Lưu ý: có thể cần refactor cách tải dictPath để tránh block.
+
+Liên hệ: nếu muốn, tôi có thể:
+- Xóa các biến/khởi tạo không dùng (`kuroshiro` còn biến chưa dùng) để dọn code.
+- Thêm banner lỗi để thu thập lỗi runtime khi DevTools không khả dụng.
+- Thêm hướng dẫn chi tiết rollback hoặc tái tích hợp Kuroshiro với lazy-load an toàn.
+
+
+Hết.

@@ -103,7 +103,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #checkAnswerButton, #checkAnswerBackButton, #speakCheckButton {
+        #checkAnswerButton, #checkAnswerBackButton {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 20px;
@@ -115,7 +115,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        #checkAnswerButton:hover, #checkAnswerBackButton:hover, #speakCheckButton:hover {
+        #checkAnswerButton:hover, #checkAnswerBackButton:hover {
             background-color: #21a1f1;
         }
         #notification {
@@ -152,21 +152,7 @@
             font-size: 14px;
             margin-bottom: 20px;
         }
-        #speechResult {
-    	    background-color: #1c2025;
-    	    padding: 3px;
-    	    border-radius: 4px;
-    	    margin: 10px auto;
-    	    text-align: center;
-    	    max-width: 600px;
-    	    font-size: 14px;
-    	    display: none;
-	    }
-	    #recognizedSpeech {
-	    	color: lightgreen;
-            font-weight: bold;    
-	    	font-size: 20px;
-	    }
+        /* speech UI removed for lighter build */
     </style>
 </head>
 <body>
@@ -202,9 +188,6 @@
 </div>
 
 <div id="notification"></div>
-<div id="speechResult">
-    <p><span id="recognizedSpeech"></span></p>
-</div>
 
 
 <textarea id="answerInput" placeholder="Kiểm tra tiếng Nhật" onkeydown="handleKeyDown(event)"></textarea>
@@ -213,7 +196,6 @@
 <div style="text-align: center;">
     <button id="checkAnswerButton" onclick="checkAnswer()">V1</button>
     <button id="checkAnswerBackButton" onclick="checkAnswerBack()">V2</button>
-    <button id="speakCheckFrontButton" onclick="startSpeechRecognitionFront()">Nói</button>    
 </div>
 
 <div style="text-align: center;">
@@ -523,9 +505,7 @@
             case 'ArrowUp':
                 repeatPronunciation();
                 break;            
-            case 'End':
-                startSpeechRecognitionFront();
-                break;
+            // 'End' speech shortcut removed along with speech feature
             default:
                 break;
         }
@@ -794,66 +774,7 @@
 
     
 
-    function startSpeechRecognitionFront() {
-        if (!('webkitSpeechRecognition' in window)) {
-            alert("Trình duyệt của bạn không hỗ trợ nhận diện giọng nói.");
-            return;
-        }
-
-        const activeElement = document.activeElement;
-        const isV1 = activeElement.id === 'answerInput';
-        const isV2 = activeElement.id === 'writingCheckBack';
-
-        const recognition = new webkitSpeechRecognition();
-        recognition.lang = 'ja-JP';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        recognition.onstart = function() {
-            document.getElementById('recognizedSpeech').textContent = "Đang nghe...";
-            document.getElementById('speechResult').style.display = 'block';
-        };
-
-        recognition.onresult = function(event) {
-            const speechResult = event.results[0][0].transcript;
-
-            (async () => {
-                let out = speechResult;
-                try {
-                    if (kuroshiro) {
-                        out = await toHiragana(speechResult);
-                    }
-                } catch (e) {
-                    console.error('Speech result conversion failed', e);
-                }
-
-                if (isV1) {
-                    document.getElementById('answerInput').value = out;
-                    document.getElementById('answerInput').classList.add('typing');
-                    setTimeout(() => {
-                        handleTypingDoneV1();
-                    }, doneTypingInterval);
-                } else if (isV2) {
-                    document.getElementById('writingCheckBack').value = out;
-                    document.getElementById('writingCheckBack').classList.add('typing');
-                    setTimeout(() => {
-                        handleTypingDoneV2();
-                    }, doneTypingInterval);
-                }
-
-                document.getElementById('recognizedSpeech').textContent = out;
-                recognition.stop();
-            })();
-        };
-
-        recognition.onerror = function(event) {
-            console.error("Lỗi nhận diện giọng nói: ", event.error);
-            document.getElementById('recognizedSpeech').textContent = "Lỗi: " + event.error;
-            recognition.stop();
-        };
-
-        recognition.start();
-    }
+    // Speech recognition removed to keep the app lightweight on GitHub Pages
 
     function handleTypingDoneV1() {
         if (!isAutoCheckEnabled) return;
