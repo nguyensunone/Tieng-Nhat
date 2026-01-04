@@ -103,7 +103,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        #checkAnswerButton, #checkAnswerBackButton, #speakCheckButton {
+        #checkAnswerButton, #checkAnswerBackButton {
             display: inline-block;
             margin: 10px 5px;
             padding: 10px 20px;
@@ -115,7 +115,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        #checkAnswerButton:hover, #checkAnswerBackButton:hover, #speakCheckButton:hover {
+        #checkAnswerButton:hover, #checkAnswerBackButton:hover {
             background-color: #21a1f1;
         }
         #notification {
@@ -152,21 +152,7 @@
             font-size: 14px;
             margin-bottom: 20px;
         }
-        #speechResult {
-    	    background-color: #1c2025;
-    	    padding: 3px;
-    	    border-radius: 4px;
-    	    margin: 10px auto;
-    	    text-align: center;
-    	    max-width: 600px;
-    	    font-size: 14px;
-    	    display: none;
-	    }
-	    #recognizedSpeech {
-	    	color: lightgreen;
-            font-weight: bold;    
-	    	font-size: 20px;
-	    }
+        /* speech UI removed for lighter build */
     </style>
 </head>
 <body>
@@ -202,18 +188,14 @@
 </div>
 
 <div id="notification"></div>
-<div id="speechResult">
-    <p><span id="recognizedSpeech"></span></p>
-</div>
 
 
-<textarea id="answerInput" placeholder="Kiểm tra tiếng Nhật (V1)" onkeydown="handleKeyDown(event)"></textarea>
-<textarea id="writingCheckBack" placeholder="Kiểm tra chữ hiragana (V2) (kiểm tra dòng chữ thứ hai)" onkeydown="handleKeyDownBack(event)"></textarea>
+<textarea id="answerInput" placeholder="Kiểm tra tiếng Nhật" onkeydown="handleKeyDown(event)"></textarea>
+<textarea id="writingCheckBack" placeholder="Kiểm tra viết tiếng Việt (V2)" onkeydown="handleKeyDownBack(event)"></textarea>
 
 <div style="text-align: center;">
     <button id="checkAnswerButton" onclick="checkAnswer()">V1</button>
-    <button id="checkAnswerBackButton" onclick="checkAnswerBack()">Kiểm tra chữ hiragana (V2)</button>
-    <button id="speakCheckFrontButton" onclick="startSpeechRecognitionFront()">Nói</button>    
+    <button id="checkAnswerBackButton" onclick="checkAnswerBack()">V2</button>
 </div>
 
 <div style="text-align: center;">
@@ -243,9 +225,7 @@
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-<script src="https://unpkg.com/kuromoji@0.1.2/dist/kuromoji.js"></script>
-<script src="https://unpkg.com/kuroshiro/dist/kuroshiro.min.js"></script>
-<script src="https://unpkg.com/kuroshiro-analyzer-kuromoji/dist/kuroshiro-analyzer-kuromoji.min.js"></script>
+<!-- Removed heavy Kuroshiro/kuromoji scripts to avoid blocking on GitHub Pages -->
 <script src="https://unpkg.com/wanakana/umd/wanakana.min.js"></script>
 
 <script>
@@ -525,9 +505,7 @@
             case 'ArrowUp':
                 repeatPronunciation();
                 break;            
-            case 'End':
-                startSpeechRecognitionFront();
-                break;
+            // 'End' speech shortcut removed along with speech feature
             default:
                 break;
         }
@@ -635,14 +613,22 @@
     }
 
     // Convert Kanji to Hiragana (returns promise)
+    // Convert Kanji to Hiragana (returns promise)
+    // Kuroshiro/kuromoji removed for GitHub Pages stability — fallback returns input unchanged.
     async function toHiragana(text) {
         if (!text) return '';
         try {
-            if (kuroshiro) {
-                return await kuroshiro.convert(text.toString(), { to: 'hiragana', mode: 'normal' });
+            // If wanakana is available and the input appears to be romaji, convert to hiragana
+            if (typeof wanakana !== 'undefined') {
+                // simple heuristic: if text contains ASCII letters, treat as romaji
+                if (/^[A-Za-z\s-]+$/.test(text.toString())) {
+                    try {
+                        return wanakana.toHiragana(text.toString());
+                    } catch (e) {}
+                }
             }
         } catch (e) {
-            console.error('toHiragana error', e);
+            console.error('toHiragana fallback error', e);
         }
         return text.toString();
     }
@@ -761,127 +747,34 @@
         answerInput.classList.remove('typing', 'checked');
     }
 
-    async function checkAnswerBack() {
+    function checkAnswerBack() {
         const input = document.getElementById('writingCheckBack');
-        const rawUser = input.value.toString().trim();
+        const user = normalizeText(input.value.trim().toLowerCase());
         input.value = '';
         input.classList.remove('typing', 'checked');
 
-        const word = vocabList[currentIndex] || [];
-        // For V2 we check the second displayed line (word[1])
-        const expectedText = (word[1] || '').toString().trim();
+        const word = vocabList[currentIndex];
+        const expected = normalizeText((word[3] || '').toString().trim().toLowerCase());
 
-        // Convert both sides to hiragana (handles kanji vs hiragana mismatch)
-        const userConv = await toHiragana(rawUser);
-        const expConv = await toHiragana(expectedText);
-
-        const userAns = normalizeText(userConv);
-        const normalizedExpectedText = normalizeText(expConv);
-
-        // romaji forms (fallback to provided romaji column if available)
-        let userRomaji = '';
-        let expectedRomaji = '';
-        try {
-            if (typeof wanakana !== 'undefined') {
-                userRomaji = wanakana.toRomaji(userConv || '');
-                expectedRomaji = (word && word[2]) ? word[2].toString().trim() : wanakana.toRomaji(expConv || '');
-            } else {
-                expectedRomaji = (word && word[2]) ? word[2].toString().trim() : '';
-            }
-        } catch (e) {
-            console.error('Romaji conversion failed', e);
-            expectedRomaji = (word && word[2]) ? word[2] : '';
-        }
-
-        const normUserRomaji = normalizeText(userRomaji.toLowerCase());
-        const normExpectedRomaji = normalizeText(expectedRomaji.toLowerCase());
-
-        const hiraganaMatch = (userAns === normalizedExpectedText);
-        const romajiMatch = (normUserRomaji && normExpectedRomaji) && (normUserRomaji === normExpectedRomaji || normUserRomaji.includes(normExpectedRomaji) || normExpectedRomaji.includes(normUserRomaji));
-
-        if (hiraganaMatch || romajiMatch) {
+        if (user === expected) {
             showNotification("Đúng!", true);
-
-            // Play pronunciation for expectedText if available; otherwise fall back to first column
-            const playText = expectedText || (word[0] || '');
-            playPronunciation(playText, function() {
-                if (isFront) {
-                    skipPlayOnDisplay = true;
-                    flipCard();
-                    setTimeout(() => { nextWord(); }, 900);
-                } else {
-                    nextWord();
-                }
-            });
+            document.getElementById('vocabLabel').innerHTML = `
+                <div class="card">
+                    <div class="example">${word[3] || ''}</div>
+                </div>`;
+            setTimeout(() => { nextWord(); }, 1000);
         } else {
             showNotification("Sai!", false);
-            // On incorrect, play hiragana/audio for second line if available, else play the first column
-            playPronunciation((word[1] || word[0] || ''));
+            document.getElementById('vocabLabel').innerHTML = `
+                <div class="card">
+                    <div class="example">${word[3] || ''}</div>
+                </div>`;
         }
     }
 
     
 
-    function startSpeechRecognitionFront() {
-        if (!('webkitSpeechRecognition' in window)) {
-            alert("Trình duyệt của bạn không hỗ trợ nhận diện giọng nói.");
-            return;
-        }
-
-        const activeElement = document.activeElement;
-        const isV1 = activeElement.id === 'answerInput';
-        const isV2 = activeElement.id === 'writingCheckBack';
-
-        const recognition = new webkitSpeechRecognition();
-        recognition.lang = 'ja-JP';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        recognition.onstart = function() {
-            document.getElementById('recognizedSpeech').textContent = "Đang nghe...";
-            document.getElementById('speechResult').style.display = 'block';
-        };
-
-        recognition.onresult = function(event) {
-            const speechResult = event.results[0][0].transcript;
-
-            (async () => {
-                let out = speechResult;
-                try {
-                    if (kuroshiro) {
-                        out = await toHiragana(speechResult);
-                    }
-                } catch (e) {
-                    console.error('Speech result conversion failed', e);
-                }
-
-                if (isV1) {
-                    document.getElementById('answerInput').value = out;
-                    document.getElementById('answerInput').classList.add('typing');
-                    setTimeout(() => {
-                        handleTypingDoneV1();
-                    }, doneTypingInterval);
-                } else if (isV2) {
-                    document.getElementById('writingCheckBack').value = out;
-                    document.getElementById('writingCheckBack').classList.add('typing');
-                    setTimeout(() => {
-                        handleTypingDoneV2();
-                    }, doneTypingInterval);
-                }
-
-                document.getElementById('recognizedSpeech').textContent = out;
-                recognition.stop();
-            })();
-        };
-
-        recognition.onerror = function(event) {
-            console.error("Lỗi nhận diện giọng nói: ", event.error);
-            document.getElementById('recognizedSpeech').textContent = "Lỗi: " + event.error;
-            recognition.stop();
-        };
-
-        recognition.start();
-    }
+    // Speech recognition removed to keep the app lightweight on GitHub Pages
 
     function handleTypingDoneV1() {
         if (!isAutoCheckEnabled) return;
@@ -1008,78 +901,8 @@
                 }
             });
         }
-        // Initialize Kuroshiro for kanji -> hiragana conversion
-        (async () => {
-            try {
-                if (window.Kuroshiro) {
-                    // handle different UMD/module shapes (default export vs ctor)
-                    let KuroshiroCtor = window.Kuroshiro;
-                    if (KuroshiroCtor && typeof KuroshiroCtor !== 'function') {
-                        if (KuroshiroCtor.default && typeof KuroshiroCtor.default === 'function') KuroshiroCtor = KuroshiroCtor.default;
-                        else if (KuroshiroCtor.Kuroshiro && typeof KuroshiroCtor.Kuroshiro === 'function') KuroshiroCtor = KuroshiroCtor.Kuroshiro;
-                    }
-
-                    if (typeof KuroshiroCtor !== 'function') {
-                        console.warn('Kuroshiro constructor not found; skipping initialization');
-                        kuroshiro = null;
-                        return;
-                    }
-
-                    kuroshiro = new KuroshiroCtor();
-
-                    let AnalyzerCtor = null;
-                    const dictPath = 'https://unpkg.com/kuromoji@0.1.2/dict/';
-
-                    // try common analyzer globals and their default exports
-                    const candidates = [
-                        window.KuroshiroAnalyzerKuromoji,
-                        window.KuromojiAnalyzer,
-                        window.Kuromoji && window.Kuromoji.Analyzer,
-                        window.Kuroshiro && window.Kuroshiro.KuroshiroAnalyzerKuromoji
-                    ];
-                    for (const c of candidates) {
-                        if (!c) continue;
-                        let ctor = c;
-                        if (ctor && typeof ctor !== 'function' && ctor.default && typeof ctor.default === 'function') ctor = ctor.default;
-                        if (typeof ctor === 'function') { AnalyzerCtor = ctor; break; }
-                    }
-
-                    if (AnalyzerCtor) {
-                        const analyzer = new AnalyzerCtor({ dictPath });
-                        await kuroshiro.init(analyzer);
-                    } else if (window.kuromoji) {
-                        // try building kuromoji tokenizer directly and pass to kuroshiro analyzer if available
-                        try {
-                            window.kuromoji.builder({ dicPath: dictPath }).build(function(err, tokenizer) {
-                                if (err) {
-                                    console.error('kuromoji build failed', err);
-                                    kuroshiro = null;
-                                    return;
-                                }
-                                // if Kuroshiro provides a Kuromoji analyzer factory under different name
-                                let KuromojiAnalyzerCtor = window.KuroshiroAnalyzerKuromoji || window.KuromojiAnalyzer || null;
-                                if (KuromojiAnalyzerCtor && KuromojiAnalyzerCtor.default) KuromojiAnalyzerCtor = KuromojiAnalyzerCtor.default;
-                                if (KuromojiAnalyzerCtor && typeof KuromojiAnalyzerCtor === 'function') {
-                                    const analyzer = new KuromojiAnalyzerCtor({ tokenizer });
-                                    kuroshiro.init(analyzer).catch(() => {});
-                                } else {
-                                    console.warn('No Kuroshiro kuromoji analyzer available after building tokenizer');
-                                    kuroshiro = null;
-                                }
-                            });
-                        } catch (e) {
-                            console.error('kuromoji build/init failed', e);
-                            kuroshiro = null;
-                        }
-                    } else {
-                        console.warn('No Kuromoji analyzer found for Kuroshiro; Kanji->Hiragana conversion disabled');
-                        kuroshiro = null;
-                    }
-                }
-            } catch (e) {
-                kuroshiro = null;
-            }
-        })();
+        // Kuroshiro/kuromoji scripts removed to avoid blocking on GitHub Pages.
+        // The app will use romaji-based fallbacks instead.
     };
 </script>
 </body>
