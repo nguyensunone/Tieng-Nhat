@@ -234,15 +234,11 @@
     </style>
 </head>
 <body>
-    <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
-        <select id="appSelector" onchange="switchApp()" style="padding: 8px; border-radius: 5px; background: #333; color: white;">
-          <option value="">-- Select App --</option>
-          <option value="test_japan.html" selected>Học Tiếng Nhật</option>
-          <option value="test_offline.html">Học Ngoại Ngữ (6 cột)</option>
-          <option value="EnglishPractice.html">English Practice</option>
-        </select>
+    <div style="position:fixed; top:10px; right:10px; z-index:999;">
+        <a href="help.html" target="_blank" style="background:#61dafb;color:#08212b;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:bold;">Hướng dẫn</a>
     </div>
-<div style="text-align: center;">
+    
+    <div style="text-align: center;">
     <div id="questionCounter">Câu hỏi: 0/0</div>
 </div>
 <div id="vocabLabel">Không có từ vựng nào được thêm.</div>
@@ -261,7 +257,7 @@
     <input type="checkbox" onchange="toggleVisibility('vietnamese')"> Ẩn Vi  
 </label>
 <label>  
-    <input type="checkbox" id="autoCheckToggle" checked onchange="toggleAutoCheck()"> Tự động kiểm tra  
+    <input type="checkbox" id="autoCheckToggle" onchange="toggleAutoCheck()"> Tự động kiểm tra  
 </label>
 </div>
 
@@ -280,9 +276,15 @@
     <button id="checkAnswerV4Button" onclick="checkAnswerV4()">V4</button>
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center; margin-top: 6px;">
+    <label style="margin-right:10px;"><input type="checkbox" id="hideV1Checkbox" onchange="toggleVFrame(1)"> Ẩn V1</label>
+    <label style="margin-right:10px;"><input type="checkbox" id="hideV2Checkbox" onchange="toggleVFrame(2)"> Ẩn V2</label>
+    <label style="margin-right:10px;"><input type="checkbox" id="hideV3Checkbox" onchange="toggleVFrame(3)"> Ẩn V3</label>
+    <label style="margin-right:10px;"><input type="checkbox" id="hideV4Checkbox" onchange="toggleVFrame(4)"> Ẩn V4</label>
+</div>
+
+    <div style="text-align: center;">
     <button onclick="prevWord()">Trước</button>
-    <button onclick="flipCard()">Lật Thẻ</button>
     <button onclick="nextWord()">Tiếp Theo</button>
     <button id="repeatButton" onclick="repeatPronunciation()">Lặp Lại</button>
     <button id="autoFlipButton" onclick="toggleAutoFlip()">Tự Động</button>
@@ -293,8 +295,16 @@
     <select id="lessonSelector" onchange="loadLesson()">
     </select>
     <select id="audioEngineSelector" style="padding:8px; margin-left:8px; border-radius:6px;">
-        <option value="gTTS">gTTS (Japanese)</option>
+        <option value="gTTS">(Loading engines...)</option>
     </select>
+    <label style="margin-left:8px;">Tốc độ:
+        <select id="playbackSpeedSelector" style="padding:6px; margin-left:6px; border-radius:6px;">
+            <option value="1">Bình thường</option>
+            <option value="0.85">Chậm</option>
+            <option value="0.7">Rất chậm</option>
+        </select>
+    </label>
+    <!-- Browser TTS selector removed to avoid confusion -->
     <label style="margin-left:8px;">Khoảng nghỉ (s): <input type="number" id="autoIntervalInput" min="1" value="1" style="width:80px; margin-left:6px;"></label>
     <button id="bookmarkBtn" onclick="saveBookmark()" style="margin-left:6px; padding:8px 12px;">🔖 Lưu</button>
     <button id="loadBookmarkBtn" onclick="loadBookmark()" style="margin-left:6px; padding:8px 12px;">📂 Tải</button>
@@ -309,8 +319,6 @@
 <!-- Removed heavy Kuroshiro/kuromoji scripts to avoid blocking on GitHub Pages -->
 <script src="https://unpkg.com/wanakana/umd/wanakana.min.js"></script>
 <!-- Removed unused xlsx include for lighter load -->
-<!-- Removed heavy Kuroshiro/kuromoji scripts to avoid blocking on GitHub Pages -->
-<script src="https://unpkg.com/wanakana/umd/wanakana.min.js"></script>
 
 <script>
     let vocabList = [];
@@ -328,7 +336,7 @@
     let isRandomMode = false;
     let audioMapping = [];
     let sessionVocabList = [];
-    let isAutoCheckEnabled = true;
+    let isAutoCheckEnabled = false;
     let typingTimer;
     const doneTypingInterval = 1500;
 
@@ -430,10 +438,7 @@
         displayWord();
     }
 
-    function flipCard() {
-        isFront = !isFront;
-        displayWord();
-    }
+    /* flipCard removed: flipping behavior replaced by directly setting isFront=false and calling displayWord() where needed */
 
     function prevWord() {
         if (isRandomMode) {
@@ -483,6 +488,27 @@
         hiddenElements[element] = !hiddenElements[element];
         displayWord();  
     }  
+
+    // Toggle visibility for the 4 writing frames (V1..V4)
+    // Behavior: checkbox checked => HIDE textarea only (buttons remain visible)
+    function toggleVFrame(n) {
+        const map = {
+            1: {ta: 'answerInput', btn: 'checkAnswerButton'},
+            2: {ta: 'answerInputV2', btn: 'checkAnswerV2Button'},
+            3: {ta: 'answerInputV3', btn: 'checkAnswerV3Button'},
+            4: {ta: 'answerInputV4', btn: 'checkAnswerV4Button'}
+        };
+        const cb = document.getElementById('hideV' + n + 'Checkbox');
+        const target = map[n];
+        if (!target || !cb) return;
+        const ta = document.getElementById(target.ta);
+        if (cb.checked) {
+            if (ta) ta.style.display = 'none';
+            try { if (ta && document.activeElement === ta) ta.blur(); } catch (e) {}
+        } else {
+            if (ta) ta.style.display = 'block';
+        }
+    }
 
     function updateQuestionCounter() {
         const questionCounter = document.getElementById('questionCounter');
@@ -547,6 +573,7 @@
             .then(response => response.json())
             .then(data => {
                 audioMapping = data;
+                try { populateAudioEngineOptions(); } catch (e) {}
             })
             .catch(error => console.error('Lỗi khi đọc file mapping:', error));
     }
@@ -578,9 +605,6 @@
                 break;
             case 'ArrowRight':
                 nextWord();
-                break;
-            case 'ArrowDown':
-                flipCard();
                 break;
             case 'ArrowUp':
                 repeatPronunciation();
@@ -656,15 +680,26 @@
         const engineSel = document.getElementById('audioEngineSelector');
         const preferredEngine = engineSel ? engineSel.value : (localStorage.getItem('preferred_tts_engine') || 'gTTS');
         let audioEntry = audioMapping.find(item => item.text === text && item.engine === preferredEngine);
+        // If no exact engine match, allow selection by gender suffix (e.g. 'edge-tts-male')
+        if (!audioEntry) {
+            if (preferredEngine.endsWith('-male')) {
+                audioEntry = audioMapping.find(item => item.text === text && (item.id && item.id.endsWith('_male')));
+            } else if (preferredEngine.endsWith('-female')) {
+                audioEntry = audioMapping.find(item => item.text === text && (item.id && item.id.endsWith('_female')));
+            }
+        }
+        // fallback: any mapping for the text (first found)
         if (!audioEntry) audioEntry = audioMapping.find(item => item.text === text);
         if (audioEntry) {
-            const audioFilePath = "LESSON/" + audioEntry.file;
+            const audioFilePath = encodeURI("LESSON/" + audioEntry.file);
             // If the same file is already loading/playing, avoid creating another Howl
             if (audio && lastAudioSrc === audioFilePath) return;
+            const speedSel = document.getElementById('playbackSpeedSelector');
+            const playbackRate = speedSel ? (parseFloat(speedSel.value) || 1) : 1;
             audio = new Howl({
                 src: [audioFilePath],
                 html5: true,
-                rate: 1,
+                rate: playbackRate,
                 onload: function() {
                     try { audio.play(); } catch (e) {}
                 },
@@ -691,6 +726,13 @@
                 if ('speechSynthesis' in window) {
                     const u = new SpeechSynthesisUtterance(text);
                     u.lang = 'ja-JP';
+                    try {
+                        // Use default browser voice settings; allow slower rate for learners
+                        const speedSel = document.getElementById('playbackSpeedSelector');
+                        const playbackRate = speedSel ? (parseFloat(speedSel.value) || 1) : 1;
+                        u.rate = playbackRate;
+                        u.pitch = 0.95;
+                    } catch (e) {}
                     try { window.speechSynthesis.cancel(); } catch (e) {}
                     window.speechSynthesis.speak(u);
                     if (typeof onEnd === 'function') {
@@ -706,6 +748,42 @@
             // no per-audio auto flip here; interval mode controls flipping
         }
     }
+
+    function populateAudioEngineOptions() {
+        const engineSel = document.getElementById('audioEngineSelector');
+        if (!engineSel) return;
+        try {
+            engineSel.innerHTML = '';
+            const added = new Set();
+            if (!audioMapping || !audioMapping.length) {
+                const opt = document.createElement('option'); opt.value = 'gTTS'; opt.textContent = 'gTTS (fallback)'; engineSel.appendChild(opt);
+                return;
+            }
+            // collect unique engines
+            const engines = Array.from(new Set(audioMapping.map(a => a.engine || 'gTTS')));
+            engines.forEach(engine => {
+                if (!added.has(engine)) {
+                    const opt = document.createElement('option'); opt.value = engine; opt.textContent = engine; engineSel.appendChild(opt); added.add(engine);
+                }
+                const hasFemale = audioMapping.some(i => i.engine === engine && i.id && i.id.endsWith('_female'));
+                const hasMale = audioMapping.some(i => i.engine === engine && i.id && i.id.endsWith('_male'));
+                if (hasFemale) {
+                    const key = engine + '-female';
+                    if (!added.has(key)) { const o = document.createElement('option'); o.value = key; o.textContent = engine + ' - Female'; engineSel.appendChild(o); added.add(key); }
+                }
+                if (hasMale) {
+                    const key = engine + '-male';
+                    if (!added.has(key)) { const o = document.createElement('option'); o.value = key; o.textContent = engine + ' - Male'; engineSel.appendChild(o); added.add(key); }
+                }
+            });
+            const saved = localStorage.getItem('preferred_tts_engine');
+            if (saved && Array.from(engineSel.options).some(o => o.value === saved)) engineSel.value = saved;
+            engineSel.removeEventListener('change', onAudioEngineChange);
+            engineSel.addEventListener('change', onAudioEngineChange);
+        } catch (e) { console.error('populateAudioEngineOptions error', e); }
+    }
+
+    function onAudioEngineChange(e) { try { localStorage.setItem('preferred_tts_engine', e.target.value); } catch (e) {} }
 
     // Convert Kanji to Hiragana (returns promise)
     // Convert Kanji to Hiragana (returns promise)
@@ -746,7 +824,8 @@
                 if (!isFront) {
                     nextWord();
                 } else {
-                    flipCard();
+                    isFront = false;
+                    displayWord();
                 }
             } catch (e) {}
             }, autoIntervalMs);
@@ -794,6 +873,8 @@
         return normalizeText(removeDiacritics(text || '').toString());
     }
 
+    <!-- Browser speechSynthesis selector and helpers removed -->
+
     async function checkAnswer() {
         const answerInput = document.getElementById('answerInput');
         const rawUser = answerInput.value.toString().trim();
@@ -836,7 +917,8 @@
                 if (isFront) {
                     // prevent displayWord() from replaying audio when we flip
                     skipPlayOnDisplay = true;
-                    flipCard();
+                    isFront = false;
+                    displayWord();
                     // give user a brief moment on the back, then advance
                     setTimeout(() => { nextWord(); }, 900);
                 } else {
@@ -905,7 +987,8 @@
             playPronunciation(expectedText, function() {
                 if (isFront) {
                     skipPlayOnDisplay = true;
-                    flipCard();
+                    isFront = false;
+                    displayWord();
                     setTimeout(() => { nextWord(); }, 900);
                 } else {
                     nextWord();
@@ -938,12 +1021,13 @@
                 showNotification("Đúng!", true);
                 playPronunciation(word && word[0] ? word[0] : '', function() {
                     if (isFront) {
-                        skipPlayOnDisplay = true;
-                        flipCard();
-                        setTimeout(() => { nextWord(); }, 900);
-                    } else {
-                        nextWord();
-                    }
+                            skipPlayOnDisplay = true;
+                            isFront = false;
+                            displayWord();
+                            setTimeout(() => { nextWord(); }, 900);
+                        } else {
+                            nextWord();
+                        }
                 });
             } else {
                 showNotification("Sai!", false);
@@ -1013,7 +1097,8 @@
             playPronunciation(word && word[0] ? word[0] : '', function() {
                 if (isFront) {
                     skipPlayOnDisplay = true;
-                    flipCard();
+                    isFront = false;
+                    displayWord();
                     setTimeout(() => { nextWord(); }, 900);
                 } else {
                     nextWord();
@@ -1203,6 +1288,13 @@
             if (saved) aSel.value = saved;
             aSel.addEventListener('change', (e) => { localStorage.setItem('preferred_tts_engine', e.target.value); });
         }
+        const speedSel = document.getElementById('playbackSpeedSelector');
+        if (speedSel) {
+            const savedSpeed = localStorage.getItem('preferred_playback_rate');
+            if (savedSpeed) speedSel.value = savedSpeed;
+            speedSel.addEventListener('change', (e) => { try { localStorage.setItem('preferred_playback_rate', e.target.value); } catch (err) {} });
+        }
+        // browser voice selector removed
         const ai = document.getElementById('autoIntervalInput');
         if (ai) {
             const savedS = localStorage.getItem('auto_interval_s');
@@ -1218,6 +1310,13 @@
                 }
             });
         }
+        // initialize V-frame visibility to match checkboxes (unchecked = visible)
+        try {
+            toggleVFrame(1);
+            toggleVFrame(2);
+            toggleVFrame(3);
+            toggleVFrame(4);
+        } catch (e) {}
         // Kuroshiro/kuromoji scripts removed to avoid blocking on GitHub Pages.
         // The app will use romaji-based fallbacks instead.
     };
