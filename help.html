@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hướng dẫn sử dụng - Ứng dụng học tiếng Nhật</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c2025;
+            color: #e0e0e0;
+            line-height: 1.7;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #61dafb;
+        }
+        h1 {
+            text-align: center;
+        }
+        .box {
+            background-color: #282c34;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+        ul {
+            margin-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .key {
+            background: #000;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #61dafb;
+        }
+        .note {
+            color: #90ee90;
+        }
+        .warn {
+            color: #ffcc00;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<div style="position:fixed; top:10px; left:10px; z-index:999;">
+    <a href="japanese_test.html"
+       style="
+           background:#61dafb;
+           color:#08212b;
+           padding:8px 14px;
+           border-radius:8px;
+           text-decoration:none;
+           font-weight:bold;
+           box-shadow:0 4px 8px rgba(0,0,0,0.3);
+       ">
+        ⬅ Quay lại ứng dụng
+    </a>
+</div>
+
+<h1>📘 HƯỚNG DẪN SỬ DỤNG<br>Ứng dụng học & kiểm tra tiếng Nhật</h1>
+
+<div class="box">
+    <h2>1️⃣ Mục đích ứng dụng</h2>
+    <ul>
+        <li>Học từ vựng tiếng Nhật theo <b>Kanji / Hiragana / Romaji / Nghĩa tiếng Việt</b></li>
+        <li>Luyện gõ nhớ mặt chữ</li>
+        <li>Luyện nghe phát âm chuẩn</li>
+        <li>Phù hợp tự học, học thuộc nhanh</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>2️⃣ Giao diện chính</h2>
+    <ul>
+        <li><b>Khung từ vựng</b>: Hiển thị 4 dòng
+            <ul>
+                <li>🟢 Dòng 1: Kanji / chữ Nhật</li>
+                <li>🟡 Dòng 2: Hiragana / IPA</li>
+                <li>🟠 Dòng 3: Romaji</li>
+                <li>🔵 Dòng 4: Nghĩa tiếng Việt</li>
+            </ul>
+        </li>
+        <li><b>Câu hỏi:</b> hiển thị vị trí câu hiện tại (VD: 5/120)</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>3️⃣ Các chế độ kiểm tra (V1 → V4)</h2>
+    <ul>
+        <li><b>V1 – Kanji</b>: Gõ chữ Nhật (cho phép gõ romaji)</li>
+        <li><b>V2 – Hiragana</b>: Gõ hiragana</li>
+        <li><b>V3 – Romaji</b>: Gõ romaji</li>
+        <li><b>V4 – Tiếng Việt</b>: Gõ nghĩa tiếng Việt</li>
+    </ul>
+    <p class="note">✔ Nhấn <b>Enter</b> để kiểm tra nhanh</p>
+</div>
+
+<div class="box">
+    <h2>4️⃣ Tự động kiểm tra</h2>
+    <ul>
+        <li>Bật <b>☑ Tự động kiểm tra</b></li>
+        <li>Sau khi gõ xong và dừng ~1.5 giây → hệ thống tự chấm</li>
+        <li>Phù hợp luyện tốc độ và phản xạ</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>5️⃣ Ẩn / Hiện nội dung</h2>
+    <ul>
+        <li><b>Ẩn Ja</b>: Ẩn chữ Nhật</li>
+        <li><b>Ẩn IPA</b>: Ẩn Hiragana</li>
+        <li><b>Ẩn R</b>: Ẩn Romaji</li>
+        <li><b>Ẩn Vi</b>: Ẩn nghĩa tiếng Việt</li>
+    </ul>
+    <p class="note">👉 Dùng để học đoán nghĩa, nhớ mặt chữ</p>
+</div>
+
+<div class="box">
+    <h2>6️⃣ Điều khiển học</h2>
+    <ul>
+        <li><b>Trước / Tiếp theo</b>: chuyển câu</li>
+        <li><b>Lặp lại</b>: nghe lại phát âm</li>
+        <li><b>Tự động</b>: tự lật & chuyển câu</li>
+        <li><b>Thứ tự / Ngẫu nhiên</b>: đổi chế độ học</li>
+    </ul>
+
+    <h3>⌨ Phím tắt</h3>
+    <ul>
+        <li><span class="key">←</span> : câu trước</li>
+        <li><span class="key">→</span> : câu tiếp</li>
+        <li><span class="key">↑</span> : nghe lại</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>7️⃣ Chọn bài & phạm vi học</h2>
+    <ul>
+        <li>Chọn bài trong danh sách</li>
+        <li>Nhập <b>Từ câu → Đến câu</b> để học một phần</li>
+        <li>Nhấn <b>Bắt đầu</b> để vào phiên học</li>
+        <li><b>Reset phiên học</b> để quay lại toàn bộ</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>8️⃣ Âm thanh & tốc độ</h2>
+    <ul>
+        <li>Chọn <b>Engine đọc</b> (nếu có nhiều giọng)</li>
+        <li>Chọn tốc độ:
+            <ul>
+                <li>Bình thường</li>
+                <li>Chậm</li>
+                <li>Rất chậm</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>9️⃣ Lưu & tiếp tục học</h2>
+    <ul>
+        <li><b>🔖 Lưu</b>: lưu vị trí đang học</li>
+        <li><b>📂 Tải</b>: quay lại đúng câu cũ</li>
+    </ul>
+    <p class="note">📌 Mỗi bài học có bookmark riêng</p>
+</div>
+
+<div class="box">
+    <h2>🔟 Gợi ý cách học hiệu quả</h2>
+    <ul>
+        <li>Lần 1: không ẩn gì → làm quen</li>
+        <li>Lần 2: ẩn tiếng Việt → đoán nghĩa</li>
+        <li>Lần 3: ẩn Ja + Romaji → luyện nghe</li>
+        <li>Bật tự động → học thụ động</li>
+    </ul>
+</div>
+
+<footer>
+    📖 Japanese Test App – Help<br>
+    Thiết kế cho tự học & ghi nhớ nhanh
+</footer>
+
+</body>
+</html>
